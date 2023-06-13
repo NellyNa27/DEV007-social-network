@@ -3,8 +3,8 @@ export const login = (onNavigate) => {
   homeDiv.textContent = "Bienvenido a login";
   const buttonHome = document.createElement("button");
 
-  buttonHome.textContent = "regresar";
-
+  buttonHome.textContent = "Regresar al inicio";
+  buttonHome.addEventListener("click", () => onNavigate("/"));
   homeDiv.appendChild(buttonHome);
 
   return homeDiv;

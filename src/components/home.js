@@ -7,7 +7,7 @@ export const home = (onNavigate) => {
 
   buttonRegister.textContent = "Regístrate";
   buttonLogin.textContent = "Inicia Sesión";
-
+  buttonLogin.addEventListener("click", () => onNavigate("/login"));
   buttonRegister.addEventListener("click", () => onNavigate("/register"));
 
   homeDiv.appendChild(buttonRegister);

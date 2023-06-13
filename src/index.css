@@ -1,0 +1,11 @@
+body {
+}
+header {
+}
+footer {
+}
+
+.root {
+  display: flex;
+  flex-direction: column;
+}

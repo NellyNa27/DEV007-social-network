@@ -1,5 +1,5 @@
 //export para tenerlo accesible, se crean los botones de acceso: registro e inicio sesión
-
+//onNavigate, se crea por parametro y argumento.
 export const home = (onNavigate) => {
   const homeDiv = document.createElement("div");
   const buttonRegister = document.createElement("button");
@@ -12,8 +12,8 @@ export const home = (onNavigate) => {
   buttonLogin.classList = "buttons";
   buttonGoogle.textContent = "Iniciar Sesión con Google";
   buttonGoogle.classList = "buttonGoogle";
-  buttonLogin.addEventListener("click", () => onNavigate("/login"));
 
+  buttonLogin.addEventListener("click", () => onNavigate("/login"));
   buttonRegister.addEventListener("click", () => onNavigate("/register"));
 
   homeDiv.appendChild(buttonRegister);

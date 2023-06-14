@@ -1,18 +1,24 @@
 @import url("https://fonts.googleapis.com/css2?family=PT+Sans:ital@1&display=swap");
+*{
+  margin: 0px;
+  width: 100%;
+}
 body {
+width: 390px;
   background-image: url(images/fondo1.jpg);
   background-size: cover;
   color: white;
   text-align: center;
 }
 header {
-  font-family: "PT Sans";
+  margin-top: 4rem;
+  font-family: "gandhi";
   font-size: x-large;
 }
 footer {
 }
 .loge {
-  width: 100px;
+  width: 200px;
 }
 .buttons {
   display: flex;
@@ -58,4 +64,73 @@ footer {
   display: flex;
   flex-direction: column;
   margin-top: 80px;
+}
+
+@media only screen and (max-width: 390px) {
+  body {
+    font-size: 15px;
+    width: 390px;
+  }
+
+  header {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    font-family: "gandhi";
+    font-size: x-small;
+    width: 390px;
+  }
+  footer {
+  }
+  .loge {
+    width: 50px;
+    display: flex;
+    justify-content: center;
+  }
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 50px;
+    margin: 0% 40% 2% 40%;
+    background-color: #25130f;
+    height: 50px;
+    width: 250px;
+    border-radius: 8px;
+    border: none;
+    color: white;
+  }
+  .buttonGoogle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 50px;
+    margin: 5% 40% 0 40%;
+    background-color: #4285f4;
+    height: 50px;
+    width: 250px;
+    border-radius: 8px;
+    border: none;
+    color: white;
+  }
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 50px;
+    margin: 0% 40% 2% 40%;
+    background-color: #a07f6d;
+    opacity: 50%;
+    height: 50px;
+    width: 250px;
+    border-radius: 8px;
+    border: none;
+    color: white;
+  }
+  #root {
+    display: flex;
+    flex-direction: column;
+    margin-top: 80px;
+  }
+  
 }

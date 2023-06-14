@@ -26,6 +26,10 @@ footer {
   border-radius: 8px;
   border: none;
   color: white;
+  cursor: pointer;
+}
+.buttons:hover {
+  background-color: #a07f6d;
 }
 .buttonGoogle {
   display: flex;
@@ -39,6 +43,10 @@ footer {
   border-radius: 8px;
   border: none;
   color: white;
+  cursor: pointer;
+}
+.buttonGoogle:hover {
+  background-color: rgb(146, 168, 243);
 }
 .form {
   display: flex;

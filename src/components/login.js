@@ -1,5 +1,5 @@
 import { home } from "./home";
-// import { createUser } from "../lib/index";
+import { createUser } from "../lib/index";
 //se crea la ruta
 export const login = (onNavigate) => {
   //se crean los elementos de HTML para insertar
@@ -12,11 +12,11 @@ export const login = (onNavigate) => {
   const buttonForgotPassword = document.createElement("button");
   const buttonLogInGoogle = document.createElement("button");
   //se da características de HTML como valor, id,clase, tipo
-  buttonEmail.value = "Correo";
+  // buttonEmail.placeholder = "Correo";
   buttonEmail.id = "email";
   buttonEmail.classList = "form";
   buttonEmail.type = "email";
-  buttonPassword.value = "Contraseña";
+  // buttonPassword.value = "Contraseña";
   buttonPassword.classList = "form";
   buttonPassword.type = "password";
   buttonPassword.id = "password";
@@ -31,15 +31,15 @@ export const login = (onNavigate) => {
   //se crea ruta para volver al inicio
   buttonHome.addEventListener("click", () => onNavigate("/"));
 
-  console.log(buttonEmail.value);
-
   // se llama el valor de los input
 
-  //  const textEmail = homeDiv.querySelector(#email);
-  //    const textPassword = homeDiv.querySelector(#password);
-  //   buttonLogIn.addEventListener("click", (e) =>{ e.preventDefault();
-  //   createUser(textEmail.value, textPassword.value);
-  //   });
+  // const textEmail = homeDiv.getElementById("email");
+  // const textPassword = homeDiv.getElementById("password");
+  buttonLogIn.addEventListener("click", (e) => {
+    e.preventDefault();
+    console.log(buttonEmail.value);
+    createUser(buttonEmail.value, buttonPassword.value);
+  });
 
   //se insertan los elementos en el HTML padre(root)
   homeDiv.appendChild(buttonEmail);

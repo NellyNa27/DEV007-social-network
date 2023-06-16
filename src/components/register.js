@@ -9,6 +9,7 @@ export const register = (onNavigate) => {
   const buttonNewEmail = document.createElement("input");
   const buttonNewPassword = document.createElement("input");
   const buttonSignIn = document.createElement("button");
+  const conditionsPassword = document.createElement("p");
 
   // buttonName.value = "Nombre";
   buttonName.classList = "form";
@@ -19,17 +20,26 @@ export const register = (onNavigate) => {
   buttonNewPassword.type = "password";
   buttonSignIn.textContent = "Registrarse";
   buttonSignIn.classList = "buttons";
-
   buttonHome.textContent = "Regresar al inicio";
   buttonHome.classList = "buttons";
   buttonHome.addEventListener("click", () => onNavigate("/"));
+  conditionsPassword.classList = "text";
+  conditionsPassword.textContent =
+    "La contraseña debe tener al menos 6 carácteres";
 
   buttonSignIn.addEventListener("click", (e) => {
     e.preventDefault();
+    if (buttonNewEmail.value.includes("@") == false)
+      return alert("Ingrese un correo válido");
+    if (buttonNewPassword.value.length < 6)
+      return alert("La contraseña debe tener al menos 6 caracteres");
     createUser(buttonNewEmail.value, buttonNewPassword.value).then(() => {
       // then se  determina qué hacer si se cumple la promesa, en este caso se debe seguir navegnafo en la spa(lo mandamos al inicio por ahora)
       alert("Usuario registrado con éxito");
       onNavigate("/wall");
+    });
+    createUser(buttonNewEmail.value, buttonNewPassword.value).catch((error) => {
+      alert("Error al crear el usuario, intente de nuevo");
     });
   });
 
@@ -38,6 +48,7 @@ export const register = (onNavigate) => {
   homeDiv.appendChild(buttonNewPassword);
   homeDiv.appendChild(buttonSignIn);
   homeDiv.appendChild(buttonHome);
+  homeDiv.appendChild(conditionsPassword);
 
   return homeDiv;
 };

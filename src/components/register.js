@@ -16,6 +16,7 @@ export const register = (onNavigate) => {
   buttonNewEmail.classList = "form";
   // buttonNewPassword.value = "Contraseña";
   buttonNewPassword.classList = "form";
+  buttonNewPassword.type = "password";
   buttonSignIn.textContent = "Registrarse";
   buttonSignIn.classList = "buttons";
 
@@ -25,9 +26,13 @@ export const register = (onNavigate) => {
 
   buttonSignIn.addEventListener("click", (e) => {
     e.preventDefault();
-    console.log(buttonNewEmail.value);
-    createUser(buttonNewEmail.value, buttonNewPassword.value);
+    createUser(buttonNewEmail.value, buttonNewPassword.value).then(() => {
+      // then se  determina qué hacer si se cumple la promesa, en este caso se debe seguir navegnafo en la spa(lo mandamos al inicio por ahora)
+      alert("Usuario registrado con éxito");
+      onNavigate("/wall");
+    });
   });
+
   homeDiv.appendChild(buttonName);
   homeDiv.appendChild(buttonNewEmail);
   homeDiv.appendChild(buttonNewPassword);
@@ -36,3 +41,6 @@ export const register = (onNavigate) => {
 
   return homeDiv;
 };
+
+//Para el error usar catch
+//.catch((error) => {const errorCode = error.code; const errorMessage = error.message;});

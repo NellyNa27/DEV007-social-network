@@ -1,25 +1,28 @@
+import { logIn } from "../lib/index";
 import { home } from "./home";
-import { createUser } from "../lib/index";
+
 //se crea la ruta
+
 export const login = (onNavigate) => {
   //se crean los elementos de HTML para insertar
   const homeDiv = document.createElement("div");
   homeDiv.textContent = "Email";
   const buttonHome = document.createElement("button");
-  const buttonEmail = document.createElement("input");
-  const buttonPassword = document.createElement("input");
+  const inputEmail = document.createElement("input");
+  const inputPassword = document.createElement("input");
   const buttonLogIn = document.createElement("button");
   const buttonForgotPassword = document.createElement("button");
   const buttonLogInGoogle = document.createElement("button");
+
   //se da características de HTML como valor, id,clase, tipo
   // buttonEmail.placeholder = "Correo";
-  buttonEmail.id = "email";
-  buttonEmail.classList = "form";
-  buttonEmail.type = "email";
+  inputEmail.id = "email";
+  inputEmail.classList = "form";
+  inputEmail.type = "email";
   // buttonPassword.value = "Contraseña";
-  buttonPassword.classList = "form";
-  buttonPassword.type = "password";
-  buttonPassword.id = "password";
+  inputPassword.classList = "form";
+  inputPassword.type = "password";
+  inputPassword.id = "password";
   buttonLogIn.textContent = "Iniciar Sesión";
   buttonLogIn.classList = "buttons";
   buttonForgotPassword.textContent = "¿Olvidaste tu contraseña?";
@@ -35,15 +38,18 @@ export const login = (onNavigate) => {
 
   // const textEmail = homeDiv.getElementById("email");
   // const textPassword = homeDiv.getElementById("password");
+
   buttonLogIn.addEventListener("click", (e) => {
     e.preventDefault();
-    console.log(buttonEmail.value);
-    createUser(buttonEmail.value, buttonPassword.value);
+    logIn(inputEmail.value, inputPassword.value).then(() => {
+      alert("Bienvenido");
+      onNavigate("/wall");
+    });
   });
 
   //se insertan los elementos en el HTML padre(root)
-  homeDiv.appendChild(buttonEmail);
-  homeDiv.appendChild(buttonPassword);
+  homeDiv.appendChild(inputEmail);
+  homeDiv.appendChild(inputPassword);
   homeDiv.appendChild(buttonLogIn);
   homeDiv.appendChild(buttonForgotPassword);
   homeDiv.appendChild(buttonLogInGoogle);

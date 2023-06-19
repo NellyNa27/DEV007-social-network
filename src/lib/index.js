@@ -5,12 +5,9 @@ import {
   getAuth,
   sendPasswordResetEmail,
   signInWithPopup,
+  signInWithRedirect,
   GoogleAuthProvider,
 } from "firebase/auth";
-// import{
-//   ,
-//   logInWithEmailAndPassword
-// }
 import { auth } from "../firebase";
 
 export const createUser = (email, contraseña) => {
@@ -27,7 +24,8 @@ export const logIn = (email, contraseña) => {
 export const recoverPassword = (email) => {
   return sendPasswordResetEmail(auth, email);
 };
-export const registerWithGoogle = (provider) => {
+export const registerWithGoogle = () => {
+  const provider = new GoogleAuthProvider();
   return signInWithPopup(auth, provider);
 };
 // en este esrchivo van las funciones de crear, modificar y borrar post, dar like, iniciar sesión con google, comentarios

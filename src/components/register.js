@@ -1,5 +1,6 @@
 import { home } from "./home";
 import { createUser } from "../lib/index";
+import { registerWithGoogle } from "../lib/index";
 
 export const register = (onNavigate) => {
   const homeDiv = document.createElement("div");
@@ -10,6 +11,7 @@ export const register = (onNavigate) => {
   const buttonNewPassword = document.createElement("input");
   const buttonSignIn = document.createElement("button");
   const conditionsPassword = document.createElement("p");
+  const buttonRegisterWithGoogle = document.createElement("button");
 
   // buttonName.value = "Nombre";
   buttonName.classList = "form";
@@ -26,9 +28,10 @@ export const register = (onNavigate) => {
   conditionsPassword.classList = "text";
   conditionsPassword.textContent =
     "La contraseña debe tener al menos 6 carácteres";
+  buttonRegisterWithGoogle.classList = "buttonGoogle";
+  buttonRegisterWithGoogle.textContent = "Registrarse con Google";
 
-  buttonSignIn.addEventListener("click", (e) => {
-    e.preventDefault();
+  buttonSignIn.addEventListener("click", () => {
     if (buttonNewEmail.value.includes("@") == false)
       return alert("Ingrese un correo válido");
     if (buttonNewPassword.value.length < 6)
@@ -43,15 +46,23 @@ export const register = (onNavigate) => {
     });
   });
 
+  buttonRegisteWithGoogle.addEventListener("click", () => {
+    registerWithGoogle()
+      .then(() => {
+        onNavigate("/wall");
+      })
+      .catch((error) => {
+        alert("Error al iniciar sesión, intente de nuevo");
+      });
+  });
+
   homeDiv.appendChild(buttonName);
   homeDiv.appendChild(buttonNewEmail);
   homeDiv.appendChild(buttonNewPassword);
   homeDiv.appendChild(buttonSignIn);
   homeDiv.appendChild(buttonHome);
   homeDiv.appendChild(conditionsPassword);
+  homeDiv.appendChild(buttonRegisterWithGoogle);
 
   return homeDiv;
 };
-
-//Para el error usar catch
-//.catch((error) => {const errorCode = error.code; const errorMessage = error.message;});

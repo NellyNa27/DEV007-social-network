@@ -1,6 +1,7 @@
 import { logIn } from "../lib/index";
 import { home } from "./home";
 import { recoverPassword } from "../lib/index";
+import { registerWithGoogle } from "../lib/index";
 
 //se crea la ruta
 
@@ -40,28 +41,33 @@ export const login = (onNavigate) => {
   // const textEmail = homeDiv.getElementById("email");
   // const textPassword = homeDiv.getElementById("password");
 
-  buttonLogIn.addEventListener("click", (e) => {
-    e.preventDefault();
-    logIn(inputEmail.value, inputPassword.value).then(() => {
-      alert("Bienvenido");
-      onNavigate("/wall");
-    });
+  buttonLogIn.addEventListener("click", () => {
+    logIn(inputEmail.value, inputPassword.value)
+      .then(() => {
+        alert("Bienvenido");
+        onNavigate("/wall");
+      })
+      .catch((error) => {
+        alert("Error al iniciar sesión, intente de nuevo");
+      });
   });
   //olvido contraseña
-  buttonForgotPassword.addEventListener("click", (e) => {
+  buttonForgotPassword.addEventListener("click", () => {
     let emailReset = prompt("Ingrese su correo");
-    console.log(emailReset);
     recoverPassword(emailReset).then(() => {
       alert("Se ha enviado una nueva contraseña a su correo");
-      console.log(recoverPassword);
     });
   });
 
   //google
-  buttonLogInGoogle.addEventListener("click", (e) => {
-    e.preventDefault();
-    registerWithGoogle(provider);
-    console.log(registerWithGoogle);
+  buttonLogInGoogle.addEventListener("click", () => {
+    registerWithGoogle()
+      .then(() => {
+        onNavigate("/wall");
+      })
+      .catch((error) => {
+        alert("Error al iniciar sesión, intente de nuevo");
+      });
   });
 
   //se insertan los elementos en el HTML padre(root)

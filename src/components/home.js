@@ -4,20 +4,25 @@ export const home = (onNavigate) => {
   const homeDiv = document.createElement("div");
   const buttonRegister = document.createElement("button");
   const buttonLogin = document.createElement("button");
-  const buttonGoogle = document.createElement("button");
+  const buttonGoogle = document.createElement("img");
+
+
 
   buttonRegister.textContent = "Regístrate";
-  buttonRegister.classList = "buttons";
+  buttonRegister.classList = "buttonsHome";
   buttonLogin.textContent = "Inicia Sesión";
-  buttonLogin.classList = "buttons";
-  buttonGoogle.textContent = "Iniciar Sesión con Google";
-  buttonGoogle.classList = "buttonGoogle";
-
+  buttonLogin.classList = "buttonsHome";
+  buttonGoogle.classList = "logoG";
+  buttonGoogle.src = "images/btngo2.png";
+  
+  
   buttonLogin.addEventListener("click", () => onNavigate("/login"));
   buttonRegister.addEventListener("click", () => onNavigate("/register"));
+
 
   homeDiv.appendChild(buttonRegister);
   homeDiv.appendChild(buttonLogin);
   homeDiv.appendChild(buttonGoogle);
+  
   return homeDiv;
 };

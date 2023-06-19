@@ -8,7 +8,7 @@ export const login = (onNavigate) => {
   const buttonPassword = document.createElement("input");
   const buttonLogIn = document.createElement("button");
   const buttonForgotPassword = document.createElement("button");
-  const buttonLogInGoogle = document.createElement("button");
+  const buttonLogInGoogle = document.createElement("img");
 
   buttonEmail.value = "Correo";
   buttonEmail.classList = "form";
@@ -20,8 +20,9 @@ export const login = (onNavigate) => {
   buttonForgotPassword.classList = "buttons";
   buttonHome.textContent = "Regresar al inicio";
   buttonHome.classList = "buttons";
-  buttonLogInGoogle.textContent = "Iniciar Sesión con Google";
-  buttonLogInGoogle.classList = "buttonGoogle";
+  buttonGoogle.classList = "logoG";
+  buttonGoogle.src = "images/btngo2.png";
+ 
   buttonHome.addEventListener("click", () => onNavigate("/"));
 
   homeDiv.appendChild(buttonEmail);

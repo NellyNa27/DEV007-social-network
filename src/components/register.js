@@ -10,10 +10,18 @@ export const register = (onNavigate) => {
   const buttonNewEmail = document.createElement("input");
   const buttonNewPassword = document.createElement("input");
   const buttonSignIn = document.createElement("button");
+
+  const buttonGoogle = document.createElement("img");
+
+buttonGoogle.classList = "logoG";
+  buttonGoogle.src = "images/btngo2.png";
+  buttonName.value = "Nombre";
+
   const conditionsPassword = document.createElement("p");
   const buttonRegisterWithGoogle = document.createElement("button");
 
   // buttonName.value = "Nombre";
+
   buttonName.classList = "form";
   // buttonNewEmail.value = "Ingresar e-mail";
   buttonNewEmail.classList = "form";
@@ -61,8 +69,12 @@ export const register = (onNavigate) => {
   homeDiv.appendChild(buttonNewPassword);
   homeDiv.appendChild(buttonSignIn);
   homeDiv.appendChild(buttonHome);
+
+  homeDiv.appendChild(buttonGoogle);
+
   homeDiv.appendChild(conditionsPassword);
   homeDiv.appendChild(buttonRegisterWithGoogle);
+
 
   return homeDiv;
 };

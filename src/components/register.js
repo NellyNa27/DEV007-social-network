@@ -11,7 +11,7 @@ export const register = (onNavigate) => {
   const buttonNewPassword = document.createElement("input");
   const buttonSignIn = document.createElement("button");
   const conditionsPassword = document.createElement("p");
-  const buttonRegisterWithGoogle = document.createElement("button");
+  const buttonRegisterWithGoogle = document.createElement("img");
 
   // buttonName.value = "Nombre";
   buttonName.classList = "form";
@@ -29,7 +29,7 @@ export const register = (onNavigate) => {
   conditionsPassword.textContent =
     "La contraseña debe tener al menos 6 carácteres";
   buttonRegisterWithGoogle.classList = "buttonGoogle";
-  buttonRegisterWithGoogle.textContent = "Registrarse con Google";
+  buttonRegisterWithGoogle.src = "/images/btngo2.png";
 
   buttonSignIn.addEventListener("click", () => {
     if (buttonNewEmail.value.includes("@") == false)
@@ -46,7 +46,7 @@ export const register = (onNavigate) => {
     });
   });
 
-  buttonRegisteWithGoogle.addEventListener("click", () => {
+  buttonRegisterWithGoogle.addEventListener("click", () => {
     registerWithGoogle()
       .then(() => {
         onNavigate("/wall");

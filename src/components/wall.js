@@ -2,6 +2,7 @@ export const wall = (onNavigate) => {
   const wallDiv = document.createElement("div");
   const wallTitle = document.createElement("h1");
   const buttonRecommendations = document.createElement("button");
+  
 
   wallDiv.classList = "wallDiv";
   wallTitle.textContent = "Bienvenidos al rincón del café";

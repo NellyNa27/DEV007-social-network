@@ -7,7 +7,6 @@ body {
   background-image: url(images/fondo3.jpg);
   background-size: cover;
 }
-
 h1,
 h2 {
   
@@ -76,10 +75,6 @@ header{
 
 
 }
-.buttonGoogle:hover {
-  background-color: rgb(146, 168, 243);
-
-}
 .buttons:hover {
   background-color: #a07f6d;
 }
@@ -97,4 +92,44 @@ header{
   border: none;
   color: white;
   cursor: pointer;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 50px;
+  margin: 0% 40% 2% 40%;
+  background-color: #a07f6d;
+  opacity: 50%;
+  height: 50px;
+  width: 250px;
+  border-radius: 8px;
+  border: none;
+  color: white;
+}
+
+.buttonGoogle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 50px;
+  margin: 5% 40% 0 40%;
+  height: 50px;
+  width: 250px;
+  border-radius: 8px;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+.buttonGoogle:hover {
+  background-color: rgb(146, 168, 243);
+}
+
+.text{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+color: white;
 }

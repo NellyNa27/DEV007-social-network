@@ -32,12 +32,9 @@ export const login = (onNavigate) => {
   buttonHome.textContent = "Regresar al inicio";
   buttonHome.classList = "buttons";
 
-  buttonGoogle.classList = "logoG";
-  buttonGoogle.src = "images/btngo2.png";
- 
-
-  buttonLogInGoogle.textContent = "Iniciar Sesión con Google";
-  buttonLogInGoogle.classList = "buttonGoogle";
+  buttonLogInGoogle.classList = "logoG";
+  buttonLogInGoogle.src = "images/btngo2.png";
+  
   //se crea ruta para volver al inicio
 
   buttonHome.addEventListener("click", () => onNavigate("/"));

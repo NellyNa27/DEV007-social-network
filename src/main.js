@@ -1,7 +1,3 @@
-// Este es el punto de entrada de tu aplicacion
-//import { myFunction } from './lib/index.js';
-//myFunction();
-
 import { home } from "./components/home";
 import { register } from "./components/register";
 import { login } from "./components/login";

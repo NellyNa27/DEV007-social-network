@@ -21,14 +21,18 @@ export const recommendations = (onNavigate) => {
   backToTheWall.addEventListener("click", () => onNavigate("/wall"));
 
   buttonPost.addEventListener("click", () => {
-    createPost(postContent.value)
-      .then(() => {
-        alert("Post creado");
-        postsDiv.textContent = posts;
-      })
-      .catch((error) => {
-        alert("error al subir el post, intente de nuevo");
-      });
+    if (postContent.value.length < 1) {
+      alert("Por favor ingresa algun texto para poder postear");
+    } else {
+      createPost(postContent.value)
+        .then(() => {
+          alert("Post creado");
+          postContent.value = "";
+        })
+        .catch((error) => {
+          alert("error al subir el post, intente de nuevo");
+        });
+    }
   });
 
   recommendationsDiv.appendChild(recommendationsTitle);
@@ -36,6 +40,6 @@ export const recommendations = (onNavigate) => {
   recommendationsDiv.appendChild(buttonPost);
   recommendationsDiv.appendChild(backToTheWall);
   recommendationsDiv.appendChild(postsDiv);
-  postsDiv.appendChild(postDiv);
+
   return recommendationsDiv;
 };

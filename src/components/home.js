@@ -2,8 +2,8 @@
 //onNavigate, se crea por parametro y argumento.
 export const home = (onNavigate) => {
   const homeDiv = document.createElement("div");
-  const buttonRegister = document.createElement("button");
   const buttonLogin = document.createElement("button");
+
   const buttonGoogle = document.createElement("img");
 
 
@@ -16,6 +16,17 @@ export const home = (onNavigate) => {
   buttonGoogle.src = "images/btngo2.png";
   
   
+
+  const buttonRegister = document.createElement("button");
+  const buttonGoogle = document.createElement("button");
+
+  buttonLogin.textContent = "Inicia Sesión";
+  buttonLogin.classList = "buttons";
+  buttonRegister.textContent = "Regístrate";
+  buttonRegister.classList = "buttons";
+  buttonGoogle.textContent = "Iniciar Sesión con Google";
+  buttonGoogle.classList = "buttonGoogle";
+
   buttonLogin.addEventListener("click", () => onNavigate("/login"));
   buttonRegister.addEventListener("click", () => onNavigate("/register"));
 

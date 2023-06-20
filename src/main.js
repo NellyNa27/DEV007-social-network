@@ -5,6 +5,8 @@
 import { home } from "./components/home";
 import { register } from "./components/register";
 import { login } from "./components/login";
+import { wall } from "./components/wall";
+import { recommendations } from "./components/recommendations";
 
 const rootDiv = document.getElementById("root");
 
@@ -12,6 +14,8 @@ const routes = {
   "/": home,
   "/register": register,
   "/login": login,
+  "/wall": wall,
+  "/recommendations": recommendations,
 };
 
 //PARA RENDERIZAR EN SPA PACKAGE.JSON

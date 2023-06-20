@@ -44,6 +44,12 @@ header{
   border: none;
   color: white;
   cursor: pointer;
+
+
+}
+.buttons:hover {
+  background-color: #a07f6d;
+
 }
 
 #root {
@@ -67,6 +73,12 @@ header{
   border: none;
   color: white;
   cursor: pointer;
+
+
+}
+.buttonGoogle:hover {
+  background-color: rgb(146, 168, 243);
+
 }
 .buttons:hover {
   background-color: #a07f6d;

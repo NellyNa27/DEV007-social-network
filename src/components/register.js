@@ -5,7 +5,7 @@ import { registerWithGoogle } from "../lib/index";
 export const register = (onNavigate) => {
   const homeDiv = document.createElement("div");
   homeDiv.classList = "text";
-  homeDiv.textContent = "Registrate con tu correo";
+  homeDiv.textContent = "Ingresa tu nombre";
   const buttonHome = document.createElement("button");
   const buttonName = document.createElement("input");
   const buttonNewEmail = document.createElement("input");
@@ -29,6 +29,7 @@ export const register = (onNavigate) => {
   // buttonNewPassword.value = "Contraseña";
   buttonNewPassword.classList = "form";
   conditionsPassword.classList = "text";
+  buttonNewPassword.placeholder="CONTRASEÑA"
   conditionsPassword.textContent =
     "La contraseña debe tener al menos 6 carácteres";
   buttonNewPassword.type = "password";

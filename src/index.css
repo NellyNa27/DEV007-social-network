@@ -9,7 +9,7 @@ body {
 }
 h1,
 h2 {
-  
+
   color: white;
   font-family: "gandhi";
   text-shadow: -1px -1px 1px black, 0px 4px 9px rgba(0, 0, 0, 0.9),
@@ -26,7 +26,7 @@ h2 {
   margin: 2rem;
 }
 .logoG {
-  width: 10em;
+  width: 9em;
 }
 header{
   display: flex;
@@ -43,12 +43,9 @@ header{
   border: none;
   color: white;
   cursor: pointer;
-
-
 }
 .buttons:hover {
   background-color: #a07f6d;
-
 }
 
 #root {
@@ -64,7 +61,7 @@ header{
   align-items: center;
   justify-content: center;
   line-height: 50px;
-  margin: 0% 40% 2% 40%;
+  margin: 0.3rem;
   background-color: #25130f;
   height: 50px;
   width: 250px;
@@ -72,8 +69,6 @@ header{
   border: none;
   color: white;
   cursor: pointer;
-
-
 }
 .buttons:hover {
   background-color: #a07f6d;
@@ -84,7 +79,6 @@ header{
   align-items: center;
   justify-content: center;
   line-height: 50px;
-  margin: 0% 40% 2% 40%;
   background-color: #25130f;
   height: 50px;
   width: 250px;
@@ -92,6 +86,7 @@ header{
   border: none;
   color: white;
   cursor: pointer;
+  margin: 0.3rem;
 }
 
 .form {
@@ -99,7 +94,6 @@ header{
   flex-direction: column;
   align-items: center;
   line-height: 50px;
-  margin: 0% 40% 2% 40%;
   background-color: #a07f6d;
   opacity: 50%;
   height: 50px;
@@ -107,23 +101,8 @@ header{
   border-radius: 8px;
   border: none;
   color: white;
-}
-
-.buttonGoogle {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  line-height: 50px;
-  margin: 5% 40% 0 40%;
-  height: 50px;
-  width: 250px;
-  border-radius: 8px;
-  border: none;
-  color: white;
-  cursor: pointer;
-}
-.buttonGoogle:hover {
-  background-color: rgb(146, 168, 243);
+  margin: 0.3rem;
+  text-align: center;
 }
 
 .text{
@@ -131,5 +110,11 @@ header{
   flex-direction: column;
   align-items: center;
   justify-content: center;
-color: white;
+  color: white;
+}
+
+.wallDiv{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

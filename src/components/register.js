@@ -4,18 +4,18 @@ import { registerWithGoogle } from "../lib/index";
 
 export const register = (onNavigate) => {
   const homeDiv = document.createElement("div");
-  homeDiv.textContent = "Bienvenido, registrate";
+  homeDiv.classList = "text";
+  homeDiv.textContent = "Ingresa tu nombre";
   const buttonHome = document.createElement("button");
   const buttonName = document.createElement("input");
   const buttonNewEmail = document.createElement("input");
   const buttonNewPassword = document.createElement("input");
   const buttonSignIn = document.createElement("button");
-
   const buttonGoogle = document.createElement("img");
 
-buttonGoogle.classList = "logoG";
+  buttonGoogle.classList = "logoG";
   buttonGoogle.src = "images/btngo2.png";
-  buttonName.value = "Nombre";
+
 
   const conditionsPassword = document.createElement("p");
   const buttonRegisterWithGoogle = document.createElement("button");
@@ -25,17 +25,20 @@ buttonGoogle.classList = "logoG";
   buttonName.classList = "form";
   // buttonNewEmail.value = "Ingresar e-mail";
   buttonNewEmail.classList = "form";
+  buttonNewEmail.placeholder="CORREO"
   // buttonNewPassword.value = "Contraseña";
   buttonNewPassword.classList = "form";
+  conditionsPassword.classList = "text";
+  buttonNewPassword.placeholder="CONTRASEÑA"
+  conditionsPassword.textContent =
+    "La contraseña debe tener al menos 6 carácteres";
   buttonNewPassword.type = "password";
   buttonSignIn.textContent = "Registrarse";
   buttonSignIn.classList = "buttons";
   buttonHome.textContent = "Regresar al inicio";
   buttonHome.classList = "buttons";
   buttonHome.addEventListener("click", () => onNavigate("/"));
-  conditionsPassword.classList = "text";
-  conditionsPassword.textContent =
-    "La contraseña debe tener al menos 6 carácteres";
+  
   buttonRegisterWithGoogle.classList = "buttonGoogle";
   buttonRegisterWithGoogle.textContent = "Registrarse con Google";
 
@@ -54,7 +57,7 @@ buttonGoogle.classList = "logoG";
     });
   });
 
-  buttonRegisteWithGoogle.addEventListener("click", () => {
+  buttonRegisterWithGoogle.addEventListener("click", () => {
     registerWithGoogle()
       .then(() => {
         onNavigate("/wall");
@@ -69,12 +72,8 @@ buttonGoogle.classList = "logoG";
   homeDiv.appendChild(buttonNewPassword);
   homeDiv.appendChild(buttonSignIn);
   homeDiv.appendChild(buttonHome);
-
   homeDiv.appendChild(buttonGoogle);
-
   homeDiv.appendChild(conditionsPassword);
-  homeDiv.appendChild(buttonRegisterWithGoogle);
-
 
   return homeDiv;
 };

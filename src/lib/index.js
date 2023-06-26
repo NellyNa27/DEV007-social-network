@@ -8,7 +8,7 @@ import {
   signInWithRedirect,
   GoogleAuthProvider,
 } from "firebase/auth";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, onSnapshot } from "firebase/firestore";
 import { auth, db } from "../firebase";
 
 export const createUser = (email, contraseña) => {
@@ -29,6 +29,10 @@ export const registerWithGoogle = () => {
   const provider = new GoogleAuthProvider();
   return signInWithPopup(auth, provider);
 };
+
+// usar callback 
+export const enlistarPost = (callback) => 
+onSnapshot (collection(db, "posts"), callback);
 
 export const createPost = (text) => {
   return addDoc(collection(db, "posts"), {

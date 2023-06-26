@@ -1,4 +1,4 @@
-import { createPost } from "../lib";
+import { createPost, enlistarPost } from "../lib";
 
 export const recommendations = (onNavigate) => {
   const recommendationsDiv = document.createElement("div");
@@ -34,7 +34,13 @@ export const recommendations = (onNavigate) => {
         });
     }
   });
-
+//hacer referencia con Doc Data para entrar a cada registro, recorrer cada registro para mostrarlo ... revisar documentacion para traer textos 
+  enlistarPost((callback) => {
+    console.log(callback);
+    callback.forEach(element => {
+      console.log (element.data()); //crear contenedores en html para visualizar cada post  
+    });
+  }),
   recommendationsDiv.appendChild(recommendationsTitle);
   recommendationsDiv.appendChild(postContent);
   recommendationsDiv.appendChild(buttonPost);

@@ -15,6 +15,7 @@ export const login = (onNavigate) => {
   const buttonLogIn = document.createElement("button");
   const buttonForgotPassword = document.createElement("button");
   const buttonLogInGoogle = document.createElement("button");
+  const inputRevealPassword = document.createElement("img");
 
   //se da características de HTML como valor, id,clase, tipo
   // buttonEmail.placeholder = "Correo";
@@ -33,6 +34,9 @@ export const login = (onNavigate) => {
   buttonHome.classList = "buttons";
   buttonLogInGoogle.textContent = "Iniciar Sesión con Google";
   buttonLogInGoogle.classList = "buttonGoogle";
+
+  inputRevealPassword.src =
+    "https://st2.depositphotos.com/4845131/7223/v/450/depositphotos_72231589-stock-illustration-icon-eye.jpg";
   //se crea ruta para volver al inicio
   buttonHome.addEventListener("click", () => onNavigate("/"));
 
@@ -40,6 +44,13 @@ export const login = (onNavigate) => {
 
   // const textEmail = homeDiv.getElementById("email");
   // const textPassword = homeDiv.getElementById("password");
+  inputRevealPassword.addEventListener("click", () => {
+    if (inputPassword.type == "password") {
+      return (inputPassword.type = "text");
+    } else {
+      inputPassword.type = "password";
+    }
+  });
 
   buttonLogIn.addEventListener("click", () => {
     logIn(inputEmail.value, inputPassword.value)
@@ -77,6 +88,7 @@ export const login = (onNavigate) => {
   homeDiv.appendChild(buttonForgotPassword);
   homeDiv.appendChild(buttonLogInGoogle);
   homeDiv.appendChild(buttonHome);
+  homeDiv.appendChild(inputRevealPassword);
 
   return homeDiv;
 };

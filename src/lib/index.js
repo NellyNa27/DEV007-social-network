@@ -8,7 +8,7 @@ import {
   signInWithRedirect,
   GoogleAuthProvider,
 } from "firebase/auth";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, doc, onSnapshot } from "firebase/firestore";
 import { auth, db } from "../firebase";
 
 export const createUser = (email, contraseña) => {
@@ -29,11 +29,12 @@ export const registerWithGoogle = () => {
   const provider = new GoogleAuthProvider();
   return signInWithPopup(auth, provider);
 };
-
+// consultar si es necesario el await
 export const createPost = (text) => {
   return addDoc(collection(db, "posts"), {
     content: text,
   });
 };
+
 // en este esrchivo van las funciones de crear, modificar y borrar post, dar like, iniciar sesión con google, comentarios
 //las promesas se consumen en los otros archivos js

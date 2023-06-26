@@ -46,7 +46,7 @@ export const register = (onNavigate) => {
     });
   });
 
-  buttonRegisteWithGoogle.addEventListener("click", () => {
+  buttonRegisterWithGoogle.addEventListener("click", () => {
     registerWithGoogle()
       .then(() => {
         onNavigate("/wall");

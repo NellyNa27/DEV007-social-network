@@ -14,7 +14,7 @@ export const login = (onNavigate) => {
   const inputPassword = document.createElement("input");
   const buttonLogIn = document.createElement("button");
   const buttonForgotPassword = document.createElement("button");
-  const buttonLogInGoogle = document.createElement("button");
+  const buttonLogInGoogle = document.createElement("img");
 
   //se da características de HTML como valor, id,clase, tipo
   // buttonEmail.placeholder = "Correo";
@@ -31,9 +31,15 @@ export const login = (onNavigate) => {
   buttonForgotPassword.classList = "buttons";
   buttonHome.textContent = "Regresar al inicio";
   buttonHome.classList = "buttons";
+
+  buttonGoogle.classList = "logoG";
+  buttonGoogle.src = "images/btngo2.png";
+ 
+
   buttonLogInGoogle.textContent = "Iniciar Sesión con Google";
   buttonLogInGoogle.classList = "buttonGoogle";
   //se crea ruta para volver al inicio
+
   buttonHome.addEventListener("click", () => onNavigate("/"));
 
   // se llama el valor de los input

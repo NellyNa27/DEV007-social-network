@@ -19,10 +19,12 @@ export const login = (onNavigate) => {
   //se da características de HTML como valor, id,clase, tipo
   // buttonEmail.placeholder = "Correo";
   inputEmail.id = "email";
+  inputEmail.placeholder= "CORREO"
   inputEmail.classList = "form";
   inputEmail.type = "email";
   // buttonPassword.value = "Contraseña";
   inputPassword.classList = "form";
+  inputPassword.placeholder= "CONTRASEÑA"
   inputPassword.type = "password";
   inputPassword.id = "password";
   buttonLogIn.textContent = "Iniciar Sesión";

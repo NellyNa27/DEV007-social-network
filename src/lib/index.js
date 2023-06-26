@@ -11,6 +11,10 @@ import {
 import { collection, addDoc, onSnapshot } from "firebase/firestore";
 import { auth, db } from "../firebase";
 
+
+// en este esrchivo van las funciones de crear, modificar y borrar post, dar like, iniciar sesión con google, comentarios
+//las promesas se consumen en los otros archivos js
+
 export const createUser = (email, contraseña) => {
   //el console log es para ver si se cumple la promesa
 
@@ -30,14 +34,14 @@ export const registerWithGoogle = () => {
   return signInWithPopup(auth, provider);
 };
 
-// usar callback 
-export const enlistarPost = (callback) => 
-onSnapshot (collection(db, "posts"), callback);
-
 export const createPost = (text) => {
   return addDoc(collection(db, "posts"), {
     content: text,
   });
 };
-// en este esrchivo van las funciones de crear, modificar y borrar post, dar like, iniciar sesión con google, comentarios
-//las promesas se consumen en los otros archivos js
+
+  // usar callback
+export const enlistarPost = (callback) =>
+    onSnapshot(collection(db, "posts"), callback);
+
+

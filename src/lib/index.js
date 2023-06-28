@@ -7,15 +7,15 @@ import {
   signInWithPopup,
   signInWithRedirect,
   GoogleAuthProvider,
-} from "firebase/auth";
+} from 'firebase/auth';
 import {
   collection,
   addDoc,
   onSnapshot,
   doc,
   getDoc,
-} from "firebase/firestore";
-import { auth, db } from "../firebase";
+} from 'firebase/firestore';
+import { auth, db } from '../firebase';
 
 // en este esrchivo van las funciones de crear, modificar y borrar post, dar like, iniciar sesión con google, comentarios
 //las promesas se consumen en los otros archivos js
@@ -40,22 +40,21 @@ export const registerWithGoogle = () => {
 };
 // consultar si es necesario el await
 export const createPost = (text) => {
-  return addDoc(collection(db, "posts"), {
+  return addDoc(collection(db, 'posts'), {
     content: text,
   });
 };
 
 // usar callback
 export const enlistarPost = (callback) =>
-  onSnapshot(collection(db, "posts"), callback);
+  onSnapshot(collection(db, 'posts'), callback);
 
-export const deplegarPosts = async () => {
-  const docRef = doc(db, "posts");
+export const desplegarPosts = async () => {
+  const docRef = doc(db, 'posts');
   const docSnap = await getDoc(docRef);
-
   if (docSnap.exists()) {
-    console.log("Document data:", docSnap.data());
+    console.log('Document data:', docSnap.data());
   } else {
-    console.log("No such document!");
+    console.log('No such document!');
   }
 };

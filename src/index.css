@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=PT+Sans:ital@1&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital@1&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -9,9 +9,8 @@ body {
 }
 h1,
 h2 {
-
   color: white;
-  font-family: "gandhi";
+  font-family: 'gandhi';
   text-shadow: -1px -1px 1px black, 0px 4px 9px rgba(0, 0, 0, 0.9),
     4px 4px 5px rgba(0, 0, 0, 0.9), 0px 0px 7px rgba(0, 0, 0, 0.9);
 }
@@ -28,14 +27,14 @@ h2 {
 .logoG {
   width: 9em;
 }
-header{
+header {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   margin-top: 3rem;
 }
-.logoG{
+.logoG {
   display: flex;
   flex-direction: center;
   height: 50px;
@@ -55,7 +54,7 @@ header{
   justify-content: center;
 }
 
-.buttonsHome{
+.buttonsHome {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -73,7 +72,7 @@ header{
 .buttons:hover {
   background-color: #a07f6d;
 }
-.buttons{
+.buttons {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -105,7 +104,7 @@ header{
   text-align: center;
 }
 
-.text{
+.text {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -113,7 +112,7 @@ header{
   color: white;
 }
 
-.wallDiv{
+.wallDiv {
   display: flex;
   flex-direction: column;
   align-items: center;

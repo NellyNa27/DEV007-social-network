@@ -19,10 +19,12 @@ export const login = (onNavigate) => {
   //se da características de HTML como valor, id,clase, tipo
   // buttonEmail.placeholder = "Correo";
   inputEmail.id = "email";
+  inputEmail.placeholder= "CORREO"
   inputEmail.classList = "form";
   inputEmail.type = "email";
   // buttonPassword.value = "Contraseña";
   inputPassword.classList = "form";
+  inputPassword.placeholder= "CONTRASEÑA"
   inputPassword.type = "password";
   inputPassword.id = "password";
   buttonLogIn.textContent = "Iniciar Sesión";
@@ -31,9 +33,12 @@ export const login = (onNavigate) => {
   buttonForgotPassword.classList = "buttons";
   buttonHome.textContent = "Regresar al inicio";
   buttonHome.classList = "buttons";
-  buttonLogInGoogle.src = "/images/btngo2.png";
-  buttonLogInGoogle.classList = "buttonGoogle";
+
+  buttonLogInGoogle.classList = "logoG";
+  buttonLogInGoogle.src = "images/btngo2.png";
+  
   //se crea ruta para volver al inicio
+
   buttonHome.addEventListener("click", () => onNavigate("/"));
 
   // se llama el valor de los input

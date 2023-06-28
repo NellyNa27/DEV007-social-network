@@ -17,7 +17,7 @@ export const register = (onNavigate) => {
   buttonGoogle.src = 'images/btngo2.png';
 
   const conditionsPassword = document.createElement('p');
-  const buttonRegisterWithGoogle = document.createElement('button');
+  const buttonRegisterWithGoogle = document.createElement('img');
 
   // buttonName.value = "Nombre";
 
@@ -39,7 +39,7 @@ export const register = (onNavigate) => {
   buttonHome.addEventListener('click', () => onNavigate('/'));
 
   buttonRegisterWithGoogle.classList = 'buttonGoogle';
-  buttonRegisterWithGoogle.textContent = 'Registrarse con Google';
+  buttonRegisterWithGoogle.src = '/images/btngo2.png';
 
   buttonSignIn.addEventListener('click', () => {
     if (buttonNewEmail.value.includes('@') == false)

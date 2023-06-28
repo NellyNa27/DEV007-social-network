@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=PT+Sans:ital@1&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital@1&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -10,7 +10,7 @@ body {
 h1,
 h2 {
   color: white;
-  font-family: "gandhi";
+  font-family: 'gandhi';
   text-shadow: -1px -1px 1px black, 0px 4px 9px rgba(0, 0, 0, 0.9),
     4px 4px 5px rgba(0, 0, 0, 0.9), 0px 0px 7px rgba(0, 0, 0, 0.9);
 }
@@ -19,39 +19,7 @@ h2 {
   font-style: italic;
 }
 .loge {
-  display: flex;
-  justify-content: center;
-  width: 9em;
-  margin: 2rem;
-}
-.logoG {
-  width: 9em;
-}
-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-top: 3rem;
-}
-.logoG {
-  display: flex;
-  flex-direction: center;
-  height: 50px;
-  width: 250px;
-  border: none;
-  color: white;
-  cursor: pointer;
-}
-.buttons:hover {
-  background-color: #a07f6d;
-}
-
-#root {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  width: 100px;
 }
 
 .buttonsHome {

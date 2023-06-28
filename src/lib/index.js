@@ -8,13 +8,7 @@ import {
   signInWithRedirect,
   GoogleAuthProvider,
 } from 'firebase/auth';
-import {
-  collection,
-  addDoc,
-  onSnapshot,
-  doc,
-  getDoc,
-} from 'firebase/firestore';
+import { collection, addDoc, onSnapshot } from 'firebase/firestore';
 import { auth, db } from '../firebase';
 
 // en este esrchivo van las funciones de crear, modificar y borrar post, dar like, iniciar sesión con google, comentarios
@@ -48,13 +42,3 @@ export const createPost = (text) => {
 // usar callback
 export const enlistarPost = (callback) =>
   onSnapshot(collection(db, 'posts'), callback);
-
-export const desplegarPosts = async () => {
-  const docRef = doc(db, 'posts');
-  const docSnap = await getDoc(docRef);
-  if (docSnap.exists()) {
-    console.log('Document data:', docSnap.data());
-  } else {
-    console.log('No such document!');
-  }
-};

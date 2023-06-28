@@ -1,4 +1,4 @@
-import { createPost, desplegarPosts, enlistarPost } from '../lib';
+import { createPost, enlistarPost } from '../lib';
 
 export const recommendations = (onNavigate) => {
   const recommendationsDiv = document.createElement('div');

@@ -50,7 +50,7 @@ export const login = (onNavigate) => {
     logIn(inputEmail.value, inputPassword.value)
       .then(() => {
         alert("Bienvenido");
-        onNavigate("/wall");
+        onNavigate("/recommendations");
       })
       .catch((error) => {
         alert("Error al iniciar sesión, intente de nuevo");
@@ -68,7 +68,7 @@ export const login = (onNavigate) => {
   buttonLogInGoogle.addEventListener("click", () => {
     registerWithGoogle()
       .then(() => {
-        onNavigate("/wall");
+        onNavigate("/recommendations");
       })
       .catch((error) => {
         alert("Error al iniciar sesión, intente de nuevo");

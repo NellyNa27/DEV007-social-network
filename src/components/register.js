@@ -47,12 +47,13 @@ export const register = (onNavigate) => {
       return alert("Ingrese un correo válido");
     if (buttonNewPassword.value.length < 6)
       return alert("La contraseña debe tener al menos 6 caracteres");
-    createUser(buttonNewEmail.value, buttonNewPassword.value).then(() => {
+    createUser(buttonNewEmail.value, buttonNewPassword.value)
+    .then(() => {
       // then se  determina qué hacer si se cumple la promesa, en este caso se debe seguir navegnafo en la spa(lo mandamos al inicio por ahora)
       alert("Usuario registrado con éxito");
-      onNavigate("/wall");
-    });
-    createUser(buttonNewEmail.value, buttonNewPassword.value).catch((error) => {
+      onNavigate("/recommendations");
+    })
+    .catch((error) => {
       alert("Error al crear el usuario, intente de nuevo");
     });
   });
@@ -60,7 +61,7 @@ export const register = (onNavigate) => {
   buttonRegisterWithGoogle.addEventListener("click", () => {
     registerWithGoogle()
       .then(() => {
-        onNavigate("/wall");
+        onNavigate("/recommendations");
       })
       .catch((error) => {
         alert("Error al iniciar sesión, intente de nuevo");

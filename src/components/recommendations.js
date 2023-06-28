@@ -7,6 +7,12 @@ export const recommendations = (onNavigate) => {
   const buttonPost = document.createElement("button");
   const backToTheWall = document.createElement("button");
 
+
+  //recomendationsDiv.innerHTML += `
+  //<textarea id="textareaPost"></textarea>
+  //<button  id="buttonAddPost">Agregar Recomendación</button>
+  //`;
+
   const postsDiv = document.createElement("div");
   const postDiv = document.createElement("div");
 
@@ -17,8 +23,8 @@ export const recommendations = (onNavigate) => {
   buttonPost.classList = "buttons";
   buttonPost.textContent = "Subir una recomendación";
   backToTheWall.classList = "buttons";
-  backToTheWall.textContent = "Volver al muro";
-  backToTheWall.addEventListener("click", () => onNavigate("/wall"));
+  backToTheWall.textContent = "Cerrar Sesión";
+  backToTheWall.addEventListener("click", () => onNavigate("/home"));
 
   buttonPost.addEventListener("click", () => {
     if (postContent.value.length < 1) {
@@ -39,6 +45,10 @@ export const recommendations = (onNavigate) => {
     console.log(callback);
     callback.forEach(element => {
       console.log (element.data()); //crear contenedores en html para visualizar cada post  
+    const post = document.createElement("div");
+    post.classList = "buttons"
+    post.appendChild(document.createTextNode(element.data().content));
+    recommendationsDiv.appendChild (post);
     });
   }),
   recommendationsDiv.appendChild(recommendationsTitle);
@@ -46,6 +56,8 @@ export const recommendations = (onNavigate) => {
   recommendationsDiv.appendChild(buttonPost);
   recommendationsDiv.appendChild(backToTheWall);
   recommendationsDiv.appendChild(postsDiv);
+
+
 
   return recommendationsDiv;
 };

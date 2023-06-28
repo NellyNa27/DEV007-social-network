@@ -8,22 +8,22 @@ import { registerWithGoogle } from "../lib/index";
 export const login = (onNavigate) => {
   //se crean los elementos de HTML para insertar
   const homeDiv = document.createElement("div");
-  homeDiv.textContent = "Email";
   const buttonHome = document.createElement("button");
   const inputEmail = document.createElement("input");
   const inputPassword = document.createElement("input");
+  const inputRevealPassword = document.createElement("img");
   const buttonLogIn = document.createElement("button");
   const buttonForgotPassword = document.createElement("button");
-  const buttonLogInGoogle = document.createElement("button");
-  const inputRevealPassword = document.createElement("img");
+  const buttonLogInGoogle = document.createElement("img");
 
   //se da características de HTML como valor, id,clase, tipo
-  // buttonEmail.placeholder = "Correo";
+
   inputEmail.id = "email";
+  inputEmail.placeholder = "CORREO";
   inputEmail.classList = "form";
   inputEmail.type = "email";
-  // buttonPassword.value = "Contraseña";
   inputPassword.classList = "form";
+  inputPassword.placeholder = "CONTRASEÑA";
   inputPassword.type = "password";
   inputPassword.id = "password";
   buttonLogIn.textContent = "Iniciar Sesión";
@@ -32,12 +32,13 @@ export const login = (onNavigate) => {
   buttonForgotPassword.classList = "buttons";
   buttonHome.textContent = "Regresar al inicio";
   buttonHome.classList = "buttons";
-  buttonLogInGoogle.textContent = "Iniciar Sesión con Google";
-  buttonLogInGoogle.classList = "buttonGoogle";
+  buttonLogInGoogle.classList = "logoG";
+  buttonLogInGoogle.src = "images/btngo2.png";
+  inputRevealPassword.src = "images/openEye.png";
+  inputRevealPassword.classList = "eyeButton";
 
-  inputRevealPassword.src =
-    "https://st2.depositphotos.com/4845131/7223/v/450/depositphotos_72231589-stock-illustration-icon-eye.jpg";
   //se crea ruta para volver al inicio
+
   buttonHome.addEventListener("click", () => onNavigate("/"));
 
   // se llama el valor de los input
@@ -46,7 +47,7 @@ export const login = (onNavigate) => {
   // const textPassword = homeDiv.getElementById("password");
   inputRevealPassword.addEventListener("click", () => {
     if (inputPassword.type == "password") {
-      return (inputPassword.type = "text");
+      inputPassword.type = "text";
     } else {
       inputPassword.type = "password";
     }
@@ -84,11 +85,11 @@ export const login = (onNavigate) => {
   //se insertan los elementos en el HTML padre(root)
   homeDiv.appendChild(inputEmail);
   homeDiv.appendChild(inputPassword);
+  homeDiv.appendChild(inputRevealPassword);
   homeDiv.appendChild(buttonLogIn);
   homeDiv.appendChild(buttonForgotPassword);
   homeDiv.appendChild(buttonLogInGoogle);
   homeDiv.appendChild(buttonHome);
-  homeDiv.appendChild(inputRevealPassword);
 
   return homeDiv;
 };

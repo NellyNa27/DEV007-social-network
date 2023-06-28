@@ -1,25 +1,66 @@
 @import url("https://fonts.googleapis.com/css2?family=PT+Sans:ital@1&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+}
 body {
-  background-image: url(images/fondo1.jpg);
+  background-image: url(images/fondo3.jpg);
   background-size: cover;
+}
+h1,
+h2 {
   color: white;
-  text-align: center;
+  font-family: "gandhi";
+  text-shadow: -1px -1px 1px black, 0px 4px 9px rgba(0, 0, 0, 0.9),
+    4px 4px 5px rgba(0, 0, 0, 0.9), 0px 0px 7px rgba(0, 0, 0, 0.9);
 }
-header {
-  font-family: "PT Sans";
-  font-size: x-large;
-}
-footer {
+h2 {
+  font-size: 1.2rem;
+  font-style: italic;
 }
 .loge {
-  width: 100px;
+  display: flex;
+  justify-content: center;
+  width: 9em;
+  margin: 2rem;
 }
-.buttons {
+.logoG {
+  width: 9em;
+}
+header {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  margin-top: 3rem;
+}
+.logoG {
+  display: flex;
+  flex-direction: center;
+  height: 50px;
+  width: 250px;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+.buttons:hover {
+  background-color: #a07f6d;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttonsHome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   line-height: 50px;
-  margin: 0% 40% 2% 40%;
+  margin: 0.3rem;
   background-color: #25130f;
   height: 50px;
   width: 250px;
@@ -31,29 +72,26 @@ footer {
 .buttons:hover {
   background-color: #a07f6d;
 }
-.buttonGoogle {
+.buttons {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   line-height: 50px;
-  margin: 5% 40% 0 40%;
-  background-color: #4285f4;
+  background-color: #25130f;
   height: 50px;
   width: 250px;
   border-radius: 8px;
   border: none;
   color: white;
   cursor: pointer;
-}
-.buttonGoogle:hover {
-  background-color: rgb(146, 168, 243);
+  margin: 0.3rem;
 }
 .form {
   display: flex;
   flex-direction: column;
   align-items: center;
   line-height: 50px;
-  margin: 0% 40% 2% 40%;
   background-color: #a07f6d;
   opacity: 50%;
   height: 50px;
@@ -61,9 +99,24 @@ footer {
   border-radius: 8px;
   border: none;
   color: white;
+  margin: 0.3rem;
+  text-align: center;
 }
-#root {
+
+.text {
   display: flex;
   flex-direction: column;
-  margin-top: 80px;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.wallDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.eyeButton {
+  width: 50px;
+  display: flex;
 }

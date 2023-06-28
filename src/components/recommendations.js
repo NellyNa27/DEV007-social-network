@@ -1,7 +1,4 @@
-import { async } from "regenerator-runtime";
-import { createPost } from "../lib";
-import { QuerySnapshot } from "firebase/firestore";
-import { doc } from "firebase/firestore";
+import { createPost, desplegarPosts, enlistarPost } from "../lib";
 
 export const recommendations = (onNavigate) => {
   const recommendationsDiv = document.createElement("div");
@@ -39,8 +36,14 @@ export const recommendations = (onNavigate) => {
         });
     }
   });
-
-  recommendationsDiv.appendChild(recommendationsTitle);
+  //hacer referencia con Doc Data para entrar a cada registro, recorrer cada registro para mostrarlo ... revisar documentacion para traer textos
+  enlistarPost((callback) => {
+    console.log(callback);
+    callback.forEach((element) => {
+      console.log(element.data()); //crear contenedores en html para visualizar cada post
+    });
+  }),
+    recommendationsDiv.appendChild(recommendationsTitle);
   recommendationsDiv.appendChild(postContent);
   recommendationsDiv.appendChild(buttonPost);
   recommendationsDiv.appendChild(backToTheWall);

@@ -1,5 +1,5 @@
 import { createPost, enlistarPost } from '../lib';
-
+//creación de elementos
 export const recommendations = (onNavigate) => {
   const recommendationsDiv = document.createElement('div');
   const recommendationsTitle = document.createElement('h1');
@@ -7,18 +7,36 @@ export const recommendations = (onNavigate) => {
   const buttonPost = document.createElement('button');
   const backToTheWall = document.createElement('button');
   const postsDiv = document.createElement('div');
-  const postDiv = document.createElement('div');
   const textPost = document.createElement('p');
+  const initialMessage = document.createElement('p');
+  const deleteButton = document.createElement('button');
+  const updateButton = document.createElement('button');
+
+  //caracterización de elementos
+  postsDiv.classList = 'container';
   textPost.classList = 'posts';
-  recommendationsDiv.classList = 'recommendations';
+  recommendationsDiv.classList = 'div';
   recommendationsTitle.classList = 'title';
   recommendationsTitle.textContent = 'Recomendaciones';
   postContent.type = 'text';
+  postContent.classList = 'postContent';
+  postContent.placeholder = 'Escribe tu recomendación acá';
   buttonPost.classList = 'buttons';
   buttonPost.textContent = 'Subir una recomendación';
   backToTheWall.classList = 'buttons';
-  backToTheWall.textContent = 'Volver al muro';
-  backToTheWall.addEventListener('click', () => onNavigate('/wall'));
+  backToTheWall.textContent = 'Cerrar sesión';
+  deleteButton.textContent = 'Borrar Post';
+  deleteButton.classList = 'postButtons';
+  updateButton.textContent = 'Editar Post';
+  updateButton.classList = 'postButtons';
+
+  //funcionalidad
+  backToTheWall.addEventListener('click', () => onNavigate('/'));
+
+  //recomendationsDiv.innerHTML += `
+  //<textarea id="textareaPost"></textarea>
+  //<button  id="buttonAddPost">Agregar Recomendación</button>
+  //`;
 
   //load puede ser reemplazado por DOMContentLoaded
 
@@ -40,15 +58,22 @@ export const recommendations = (onNavigate) => {
   enlistarPost((callback) => {
     console.log(callback);
     callback.forEach((element) => {
-      console.log(element.data()); //crear contenedores en html para visualizar cada post
+      //hay que limpiar el post para que no se repita postsDiv.innerHTML = '';
+      // console.log(element.data()); crear contenedores en html para visualizar cada post
+      const post = document.createElement('div');
+      post.classList = 'posts';
+      post.appendChild(document.createTextNode(element.data().content));
+      post.appendChild(deleteButton);
+      post.appendChild(updateButton);
+      postsDiv.appendChild(post);
     });
   }),
+    //inserción al HTML
     recommendationsDiv.appendChild(recommendationsTitle);
   recommendationsDiv.appendChild(postContent);
   recommendationsDiv.appendChild(buttonPost);
-  recommendationsDiv.appendChild(backToTheWall);
+  recommendationsDiv.appendChild(initialMessage);
   recommendationsDiv.appendChild(postsDiv);
-  postDiv.appendChild(textPost);
-
+  recommendationsDiv.appendChild(backToTheWall);
   return recommendationsDiv;
 };

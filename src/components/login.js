@@ -11,19 +11,22 @@ export const login = (onNavigate) => {
   const buttonHome = document.createElement('button');
   const inputEmail = document.createElement('input');
   const inputPassword = document.createElement('input');
-  const inputRevealPassword = document.createElement('img');
   const buttonLogIn = document.createElement('button');
   const buttonForgotPassword = document.createElement('button');
   const buttonLogInGoogle = document.createElement('img');
-
+  const inputRevealPassword = document.createElement('img');
+  const email = document.createElement('p');
+  const password = document.createElement('p');
   //se da características de HTML como valor, id,clase, tipo
-
+  homeDiv.classList = 'div';
+  email.textContent = 'EMAIL';
+  email.classList = 'message';
+  password.textContent = 'CONTRASEÑA';
+  password.classList = 'message';
   inputEmail.id = 'email';
-  inputEmail.placeholder = 'CORREO';
   inputEmail.classList = 'form';
   inputEmail.type = 'email';
   inputPassword.classList = 'form';
-  inputPassword.placeholder = 'CONTRASEÑA';
   inputPassword.type = 'password';
   inputPassword.id = 'password';
   buttonLogIn.textContent = 'Iniciar Sesión';
@@ -40,9 +43,6 @@ export const login = (onNavigate) => {
   //se crea ruta para volver al inicio
 
   buttonHome.addEventListener('click', () => onNavigate('/'));
-
-  // se llama el valor de los input
-
   // const textEmail = homeDiv.getElementById("email");
   // const textPassword = homeDiv.getElementById("password");
   inputRevealPassword.addEventListener('click', () => {
@@ -54,10 +54,14 @@ export const login = (onNavigate) => {
   });
 
   buttonLogIn.addEventListener('click', () => {
+    if (inputEmail.value.includes('@') == false)
+      return alert('Ingrese un correo válido');
+    if (inputPassword.value.length < 6)
+      return alert('La contraseña debe tener al menos 6 caracteres');
     logIn(inputEmail.value, inputPassword.value)
       .then(() => {
         alert('Bienvenido');
-        onNavigate('/wall');
+        onNavigate('/recommendations');
       })
       .catch((error) => {
         alert('Error al iniciar sesión, intente de nuevo');
@@ -75,7 +79,7 @@ export const login = (onNavigate) => {
   buttonLogInGoogle.addEventListener('click', () => {
     registerWithGoogle()
       .then(() => {
-        onNavigate('/wall');
+        onNavigate('/recommendations');
       })
       .catch((error) => {
         alert('Error al iniciar sesión, intente de nuevo');
@@ -83,11 +87,14 @@ export const login = (onNavigate) => {
   });
 
   //se insertan los elementos en el HTML padre(root)
+  homeDiv.appendChild(email);
+
   homeDiv.appendChild(inputEmail);
+  homeDiv.appendChild(password);
   homeDiv.appendChild(inputPassword);
+  homeDiv.appendChild(buttonForgotPassword);
   homeDiv.appendChild(inputRevealPassword);
   homeDiv.appendChild(buttonLogIn);
-  homeDiv.appendChild(buttonForgotPassword);
   homeDiv.appendChild(buttonLogInGoogle);
   homeDiv.appendChild(buttonHome);
 

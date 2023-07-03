@@ -9,10 +9,9 @@ export const recommendations = (onNavigate) => {
   const postsDiv = document.createElement('div');
   const textPost = document.createElement('p');
   const initialMessage = document.createElement('p');
-  const deleteButton = document.createElement('button');
-  const updateButton = document.createElement('button');
 
   //caracterización de elementos
+
   postsDiv.classList = 'container';
   textPost.classList = 'posts';
   recommendationsDiv.classList = 'div';
@@ -25,10 +24,6 @@ export const recommendations = (onNavigate) => {
   buttonPost.textContent = 'Subir una recomendación';
   backToTheWall.classList = 'buttons';
   backToTheWall.textContent = 'Cerrar sesión';
-  deleteButton.textContent = 'Borrar Post';
-  deleteButton.classList = 'postButtons';
-  updateButton.textContent = 'Editar Post';
-  updateButton.classList = 'postButtons';
 
   //funcionalidad
   backToTheWall.addEventListener('click', () => onNavigate('/'));
@@ -54,21 +49,41 @@ export const recommendations = (onNavigate) => {
         });
     }
   });
+  //inserción de posts
   //hacer referencia con Doc Data para entrar a cada registro, recorrer cada registro para mostrarlo ... revisar documentacion para traer textos
   enlistarPost((callback) => {
     console.log(callback);
+    postsDiv.innerHTML = '';
     callback.forEach((element) => {
       //hay que limpiar el post para que no se repita postsDiv.innerHTML = '';
+
       // console.log(element.data()); crear contenedores en html para visualizar cada post
       const post = document.createElement('div');
+      const deleteButton = document.createElement('button');
+      const updateButton = document.createElement('button');
+      const like = document.createElement('img');
+      const likes = document.createElement('p');
+      deleteButton.textContent = 'Borrar Post';
+      deleteButton.classList = 'postButtons';
+      updateButton.textContent = 'Editar Post';
+      updateButton.classList = 'postButtons';
+      like.classList = 'like';
+      like.src = 'images/like.png';
+      likes.classList = 'like';
+      likes.textContent = '0';
       post.classList = 'posts';
+      post.appendChild(like);
+      post.appendChild(likes);
       post.appendChild(document.createTextNode(element.data().content));
-      post.appendChild(deleteButton);
+
       post.appendChild(updateButton);
+      post.appendChild(deleteButton);
+
       postsDiv.appendChild(post);
     });
   }),
     //inserción al HTML
+
     recommendationsDiv.appendChild(recommendationsTitle);
   recommendationsDiv.appendChild(postContent);
   recommendationsDiv.appendChild(buttonPost);

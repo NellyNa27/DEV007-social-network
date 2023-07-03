@@ -4,7 +4,7 @@
 
 - [1. Preámbulo](#1-preámbulo)
 - [2. Resumen del proyecto](#2-resumen-del-proyecto)
-- [3. Formulario de Usuario](#3-formulario-de-usuario)
+- [3. Formulario e historias de Usuario](#3-formulario-de-usuario)
 
 ## 1. Preámbulo
 
@@ -36,6 +36,8 @@ Hemos desarrollado ésta SPA usando tecnologías web innovadoras y de última ge
 
 ## 3. Formulario de usuario
 
+Se adjuntan a continuación las preguntas y respuestas del formulario de usuario.
+Cabe destacar que previo al formulario se definió la temática y se buscó bases de diseño para consultar con el usuario las opciones más agradables para ellos.
 ![](https://i.postimg.cc/J7BxNZRk/logos.png)
 ![](https://i.postimg.cc/7ZqNrR03/R1.png)
 ![](https://i.postimg.cc/QxQqPD9N/r2.png)
@@ -43,3 +45,64 @@ Hemos desarrollado ésta SPA usando tecnologías web innovadoras y de última ge
 ![](https://i.postimg.cc/9fnPTFSb/r4.png)
 ![](https://i.postimg.cc/MGTbvjsX/r5.png)
 ![](https://i.postimg.cc/V60qFPP8/Untitled.png)
+
+Tras los resultados se estableció cuáles serían las historias de usuario a aplicar en el proyecto.
+
+### Primera historia de usuario
+
+En un principio se estableció como primera necesidad la creación de la estructura base de la página web según los resultados del formulario.
+En esta historia los objetivos fueron:
+
+- Creación de los **prototipo de alta y baja fidelidad**.
+- Creación del **repositorio** base en el que se trabajaría, además de su clonación en el equipo de cada una de las participantes.
+- Implementación de una **Single page aplication** (SPA), que permita redirigir al usuario según la ruta aplicada.
+
+### Segunda historia de usuario
+
+La segunda historia de usuario se basó en la autenticación de usuario para que el acceso a la aplicación sea restringido .
+En esta historia los objetivos fueron:
+
+- Registro de un **usuario nuevo** con correo y contraseña .
+- Registro de un usuario con **cuenta de Google**.
+- **Inicio de sesión**con usuario registrado previamente.
+- Recuperación de contraseña a través de un correo de **recuperación**.
+
+Para la autenticación se asoció la aplicación a una cuenta de **Firebase** y se aplicó la funcionalidad en base a la documentación de este.
+Para privacidad del usuario se crearon input de tipo password para ocultar la contraseña y se aplicó la posibilidad de revelar esa contraseña , cambiando a un input de texto.
+
+### Tercera historia de usuario
+
+La tercera historia de usuario se basó en la posibilidad de que el usuario previamente autenticado pueda crear post de recomendaciones que luego puedan ser almacenados y compartidos al resto de usuarios.
+En esta historia los objetivos fueron:
+
+- Creación de una **colección de datos** para poder almacenar post creados por el usuario.
+- Implementación de la interfaz y funcionalidad para **creación de posts**.
+- **Despliegue** de los post en la página de recomendaciones.
+- Permitir que los usuarios puedan **modificar y borrar los post creados**.
+
+Para esta historia se activó la base de datos de **Cloud firestore** , creando una colección para post que luego se puedan manipular gracias a las indicaciones de la documentación de esta página.
+
+### Cuarta historia de usuario
+
+La cuarta historia de usuario busca la interacción entre los usuarios a través de la calificación de las publicaciones. En este caso se determinó con la posibilidad de **Dar Likes a las publicaciones** para poder dar puntos de aprobación entre usuarios.
+
+# Ejecución
+
+Para la ejecución del proyecto se dividió el trabajo en:
+
+#### Interfaz
+
+El esqueleto de la aplicación se dió a través de un archivo **HTML** que fue estructurado respetando las reglas de **HTML semántico**, siguiendo la estructura determinada en los prototipos de alta y baja fidelidad.
+Para poder crear la **SPA** se utilizó un archivo de **index.html** que se llamó desde un archivo **index.js** para poder aplicar la navegación entre distintas vistas del usuario, según la ruta a seguir.
+Para que esto sea posible se insertó elementos html desde los respectivos archivos js , desde los cuales se hizo manipulación activa del **DOM**.
+
+#### Funcionalidad
+
+El lenguaje de programación elegido fue Javascript Vanilla, descartando la utilización de librerías o frameworks.
+En este caso fue fundamental la manipulación de archivos primitivos y no primitivos y el uso de promesas para implementar asincronía en la funcionalidad de la aplicación.
+Cabe destacar que se utilizó la estructura de módulos para permitir la importación y exportación de funcionalidad entre archivos.
+
+#### Diseño
+
+El diseño previamente establecido en los prototipos de alta y baja fidelidad se implementó a través de un archivo **CSS**. Este nos permitió replicar el diseño original de la manera más exacta posible y se utilizó para dar un diseño **Responsive** a la aplicación, creando su versión web y móvil, según sea la necesidad del usuario.
+Es importante destacar que el uso de **Flexbox** ayudó a mantener la estructura de la página evitando tener exceso de código en el archivo respectivo.

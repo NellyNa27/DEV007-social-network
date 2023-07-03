@@ -32,7 +32,7 @@ export const registerWithGoogle = () => {
   const provider = new GoogleAuthProvider();
   return signInWithPopup(auth, provider);
 };
-
+// consultar si es necesario el await
 export const createPost = (text) => {
   return addDoc(collection(db, 'posts'), {
     content: text,

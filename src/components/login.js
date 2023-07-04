@@ -1,12 +1,8 @@
-import { logIn } from '../lib/index';
-import { home } from './home';
-import { recoverPassword } from '../lib/index';
-import { registerWithGoogle } from '../lib/index';
+import { logIn, recoverPassword, registerWithGoogle } from '../lib/index';
 
-//se crea la ruta
-
+//  Se crea la ruta
 export const login = (onNavigate) => {
-  //se crean los elementos de HTML para insertar
+  //  se crean los elementos de HTML para insertar
   const homeDiv = document.createElement('div');
   const buttonHome = document.createElement('button');
   const inputEmail = document.createElement('input');
@@ -17,7 +13,7 @@ export const login = (onNavigate) => {
   const inputRevealPassword = document.createElement('img');
   const email = document.createElement('p');
   const password = document.createElement('p');
-  //se da características de HTML como valor, id,clase, tipo
+  //  se da características de HTML como valor, id,clase, tipo
   homeDiv.classList = 'div';
   email.textContent = 'EMAIL';
   email.classList = 'message';
@@ -39,56 +35,52 @@ export const login = (onNavigate) => {
   buttonLogInGoogle.src = 'images/btngo2.png';
   inputRevealPassword.src = 'images/openEye.png';
   inputRevealPassword.classList = 'eyeButton';
-
-  //se crea ruta para volver al inicio
-
+  //  se crea ruta para volver al inicio
   buttonHome.addEventListener('click', () => onNavigate('/'));
-  // const textEmail = homeDiv.getElementById("email");
-  // const textPassword = homeDiv.getElementById("password");
+  //  const textEmail = homeDiv.getElementById("email");
+  //  const textPassword = homeDiv.getElementById("password");
   inputRevealPassword.addEventListener('click', () => {
-    if (inputPassword.type == 'password') {
+    if (inputPassword.type === 'password') {
       inputPassword.type = 'text';
     } else {
       inputPassword.type = 'password';
     }
   });
-
   buttonLogIn.addEventListener('click', () => {
-    if (inputEmail.value.includes('@') == false)
+    if (inputEmail.value.includes('@') === false) {
       return alert('Ingrese un correo válido');
-    if (inputPassword.value.length < 6)
+    }
+    if (inputPassword.value.length < 6) {
       return alert('La contraseña debe tener al menos 6 caracteres');
-    logIn(inputEmail.value, inputPassword.value)
+    }
+    return logIn(inputEmail.value, inputPassword.value)
       .then(() => {
         alert('Bienvenido');
         onNavigate('/recommendations');
       })
-      .catch((error) => {
+      .catch(() => {
         alert('Error al iniciar sesión, intente de nuevo');
       });
   });
-  //olvido contraseña
+  //  olvido contraseña
   buttonForgotPassword.addEventListener('click', () => {
-    let emailReset = prompt('Ingrese su correo');
+    const emailReset = prompt('Ingrese su correo');
     recoverPassword(emailReset).then(() => {
       alert('Se ha enviado una nueva contraseña a su correo');
     });
   });
-
-  //google
+  //  google
   buttonLogInGoogle.addEventListener('click', () => {
     registerWithGoogle()
       .then(() => {
         onNavigate('/recommendations');
       })
-      .catch((error) => {
+      .catch(() => {
         alert('Error al iniciar sesión, intente de nuevo');
       });
   });
-
-  //se insertan los elementos en el HTML padre(root)
+  //  se insertan los elementos en el HTML padre(root)
   homeDiv.appendChild(email);
-
   homeDiv.appendChild(inputEmail);
   homeDiv.appendChild(password);
   homeDiv.appendChild(inputPassword);
@@ -97,6 +89,5 @@ export const login = (onNavigate) => {
   homeDiv.appendChild(buttonLogIn);
   homeDiv.appendChild(buttonLogInGoogle);
   homeDiv.appendChild(buttonHome);
-
   return homeDiv;
 };

@@ -1,8 +1,4 @@
-import { home } from './home';
-import { createUser } from '../lib/index';
-import { registerWithGoogle } from '../lib/index';
-import { sendPasswordResetEmail } from 'firebase/auth';
-import { user } from '../firebase';
+import { createUser, registerWithGoogle } from '../lib/index';
 
 export const register = (onNavigate) => {
   const homeDiv = document.createElement('div');
@@ -28,8 +24,7 @@ export const register = (onNavigate) => {
   buttonNewPassword.classList = 'form';
   buttonNewPassword.type = 'password';
   conditionsPassword.classList = 'text';
-  conditionsPassword.textContent =
-    '(La contraseña debe tener al menos 6 carácteres)';
+  conditionsPassword.textContent = '(La contraseña debe tener al menos 6 carácteres)';
   buttonSignIn.textContent = 'Registrarse';
   buttonSignIn.classList = 'buttons';
   buttonHome.textContent = 'Regresar al inicio';
@@ -42,22 +37,17 @@ export const register = (onNavigate) => {
   email.classList = 'message';
   password.textContent = 'CONTRASEÑA';
   password.classList = 'message';
-
-  //funcionalidad
+  //  funcionalidad
   buttonHome.addEventListener('click', () => onNavigate('/'));
-
   buttonSignIn.addEventListener('click', () => {
-    if (buttonNewEmail.value.includes('@') == false)
-      return alert('Ingrese un correo válido');
-    if (buttonNewPassword.value.length < 6)
-      return alert('La contraseña debe tener al menos 6 caracteres');
-    createUser(buttonNewEmail.value, buttonNewPassword.value)
+    if (buttonNewEmail.value.includes('@') === false) return alert('Ingrese un correo válido');
+    if (buttonNewPassword.value.length < 6) return alert('La contraseña debe tener al menos 6 caracteres');
+    return createUser(buttonNewEmail.value, buttonNewPassword.value)
       .then(() => {
-        // then se  determina qué hacer si se cumple la promesa, en este caso se debe seguir navegnafo en la spa(lo mandamos al inicio por ahora)
         alert('Usuario registrado con éxito');
         onNavigate('/recommendations');
       })
-      .catch((error) => {
+      .catch(() => {
         alert('Error al crear el usuario, intente de nuevo');
       });
   });
@@ -67,7 +57,7 @@ export const register = (onNavigate) => {
       .then(() => {
         onNavigate('/recommendations');
       })
-      .catch((error) => {
+      .catch(() => {
         alert('Error al iniciar sesión, intente de nuevo');
       });
   });

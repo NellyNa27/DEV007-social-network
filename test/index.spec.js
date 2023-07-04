@@ -12,5 +12,3 @@ describe('createUser', () => {
     expect(typeof createUser).toBe('function');
   });
 });
-
-

@@ -1,7 +1,7 @@
-import { auth, user } from '../firebase';
-import { createPost, createUser, enlistarPost } from '../lib';
+import { auth } from '../firebase';
+import { createPost, enlistarPost } from '../lib';
 
-//creación de elementos
+//  creación de elementos
 export const recommendations = (onNavigate) => {
   const recommendationsDiv = document.createElement('div');
   const recommendationsTitle = document.createElement('h1');
@@ -11,9 +11,7 @@ export const recommendations = (onNavigate) => {
   const postsDiv = document.createElement('div');
   const textPost = document.createElement('p');
   const initialMessage = document.createElement('p');
-
-  //caracterización de elementos
-
+  //  caracterización de elementos
   postsDiv.classList = 'container';
   textPost.classList = 'posts';
   recommendationsDiv.classList = 'div';
@@ -27,17 +25,13 @@ export const recommendations = (onNavigate) => {
   backToTheWall.classList = 'buttons';
   backToTheWall.textContent = 'Cerrar sesión';
   backToTheWall.id = 'close';
-
-  //funcionalidad
+  //  funcionalidad
   backToTheWall.addEventListener('click', () => onNavigate('/'));
-
-  //recomendationsDiv.innerHTML += `
-  //<textarea id="textareaPost"></textarea>
-  //<button  id="buttonAddPost">Agregar Recomendación</button>
-  //`;
-
-  //load puede ser reemplazado por DOMContentLoaded
-
+  //  recomendationsDiv.innerHTML += `
+  //  <textarea id="textareaPost"></textarea>
+  //  <button  id="buttonAddPost">Agregar Recomendación</button>
+  //  `;
+  //  load puede ser reemplazado por DOMContentLoaded?
   buttonPost.addEventListener('click', () => {
     if (postContent.value.length < 1) {
       alert('Por favor ingresa algun texto para poder postear');
@@ -47,20 +41,21 @@ export const recommendations = (onNavigate) => {
           alert('Post creado');
           postContent.value = '';
         })
-        .catch((error) => {
+        .catch(() => {
           alert('error al subir el post, intente de nuevo');
         });
     }
   });
-  //inserción de posts
-  //hacer referencia con Doc Data para entrar a cada registro, recorrer cada registro para mostrarlo ... revisar documentacion para traer textos
+  //  inserción de posts
+  // hacer referencia con Doc Data para entrar a cada registro
+  // recorrer cada registro para mostrarlo
+  // revisar documentacion para traer textos
+  // location.addEventListener ("load", ()=> { });
   enlistarPost((callback) => {
     console.log(callback);
     postsDiv.innerHTML = '';
     callback.forEach((element) => {
-      //hay que limpiar el post para que no se repita postsDiv.innerHTML = '';
-
-      // console.log(element.data()); crear contenedores en html para visualizar cada post
+      //  hay que limpiar el post para que no se repita postsDiv.innerHTML = '';
       const post = document.createElement('div');
       const deleteButton = document.createElement('button');
       const updateButton = document.createElement('button');
@@ -80,17 +75,15 @@ export const recommendations = (onNavigate) => {
       userName.appendChild(document.createTextNode(auth.currentUser.email));
       post.appendChild(like);
       post.appendChild(likes);
-
       post.appendChild(document.createTextNode(element.data().content));
       post.append(userName);
       post.appendChild(updateButton);
       post.appendChild(deleteButton);
       postsDiv.appendChild(post);
     });
-  }),
-    //inserción al HTML
-
-    recommendationsDiv.appendChild(recommendationsTitle);
+  });
+  //  inserción al HTML
+  recommendationsDiv.appendChild(recommendationsTitle);
   recommendationsDiv.appendChild(postContent);
   recommendationsDiv.appendChild(buttonPost);
   recommendationsDiv.appendChild(initialMessage);

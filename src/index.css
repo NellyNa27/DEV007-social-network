@@ -195,7 +195,17 @@ footer {
   color: white;
 }
 
-@media only screen and (min-width: 400px) {
+.userName {
+  color: white;
+  display: flex;
+  justify-content: flex-end;
+}
+
+#close {
+  display: none;
+}
+
+@media only screen and (min-width: 413px) {
   body {
     display: flex;
     flex-direction: column;
@@ -221,5 +231,8 @@ footer {
   }
   .div {
     width: 100%;
+  }
+  #close {
+    display: flex;
   }
 }

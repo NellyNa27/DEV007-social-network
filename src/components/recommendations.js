@@ -1,4 +1,6 @@
-import { createPost, enlistarPost } from '../lib';
+import { auth, user } from '../firebase';
+import { createPost, createUser, enlistarPost } from '../lib';
+
 //creación de elementos
 export const recommendations = (onNavigate) => {
   const recommendationsDiv = document.createElement('div');
@@ -24,6 +26,7 @@ export const recommendations = (onNavigate) => {
   buttonPost.textContent = 'Subir una recomendación';
   backToTheWall.classList = 'buttons';
   backToTheWall.textContent = 'Cerrar sesión';
+  backToTheWall.id = 'close';
 
   //funcionalidad
   backToTheWall.addEventListener('click', () => onNavigate('/'));
@@ -63,6 +66,7 @@ export const recommendations = (onNavigate) => {
       const updateButton = document.createElement('button');
       const like = document.createElement('img');
       const likes = document.createElement('p');
+      const userName = document.createElement('p');
       deleteButton.textContent = 'Borrar Post';
       deleteButton.classList = 'postButtons';
       updateButton.textContent = 'Editar Post';
@@ -72,13 +76,15 @@ export const recommendations = (onNavigate) => {
       likes.classList = 'like';
       likes.textContent = '0';
       post.classList = 'posts';
+      userName.classList = 'userName';
+      userName.appendChild(document.createTextNode(auth.currentUser.email));
       post.appendChild(like);
       post.appendChild(likes);
-      post.appendChild(document.createTextNode(element.data().content));
 
+      post.appendChild(document.createTextNode(element.data().content));
+      post.append(userName);
       post.appendChild(updateButton);
       post.appendChild(deleteButton);
-
       postsDiv.appendChild(post);
     });
   }),

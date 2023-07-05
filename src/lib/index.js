@@ -7,10 +7,9 @@ import {
   signInWithPopup,
   signInWithRedirect,
   GoogleAuthProvider,
-} from "firebase/auth";
-import { collection, addDoc, onSnapshot } from "firebase/firestore";
-import { auth, db } from "../firebase";
-
+} from 'firebase/auth';
+import { collection, addDoc, onSnapshot, deleteDoc, doc, updateDoc } from 'firebase/firestore';
+import { auth, db } from '../firebase';
 
 // en este esrchivo van las funciones de crear, modificar y borrar post, dar like, iniciar sesión con google, comentarios
 //las promesas se consumen en los otros archivos js
@@ -33,15 +32,26 @@ export const registerWithGoogle = () => {
   const provider = new GoogleAuthProvider();
   return signInWithPopup(auth, provider);
 };
-
+// consultar si es necesario el await
 export const createPost = (text) => {
-  return addDoc(collection(db, "posts"), {
+  return addDoc(collection(db, 'posts'), {
     content: text,
   });
 };
 
-  // usar callback
+// usar callback
 export const enlistarPost = (callback) =>
-    onSnapshot(collection(db, "posts"), callback);
+  onSnapshot(collection(db, 'posts'), callback);
 
+//Borra POST
+export const deletePost = (id) => {
+  return deleteDoc(doc(db, 'posts', id));
+};
 
+//Editar POST
+export const updatePost = (id, post) => {
+  const postRef = doc(db, 'posts', id);
+  return updateDoc (postRef, {
+    content: post,
+  });
+};

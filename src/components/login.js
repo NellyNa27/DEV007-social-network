@@ -8,23 +8,25 @@ import { registerWithGoogle } from '../lib/index';
 export const login = (onNavigate) => {
   //se crean los elementos de HTML para insertar
   const homeDiv = document.createElement('div');
-  homeDiv.textContent = 'Email';
   const buttonHome = document.createElement('button');
   const inputEmail = document.createElement('input');
   const inputPassword = document.createElement('input');
   const buttonLogIn = document.createElement('button');
   const buttonForgotPassword = document.createElement('button');
   const buttonLogInGoogle = document.createElement('img');
-
+  const inputRevealPassword = document.createElement('img');
+  const email = document.createElement('p');
+  const password = document.createElement('p');
   //se da características de HTML como valor, id,clase, tipo
-  // buttonEmail.placeholder = "Correo";
+  homeDiv.classList = 'div';
+  email.textContent = 'EMAIL';
+  email.classList = 'message';
+  password.textContent = 'CONTRASEÑA';
+  password.classList = 'message';
   inputEmail.id = 'email';
-  inputEmail.placeholder = 'CORREO';
   inputEmail.classList = 'form';
   inputEmail.type = 'email';
-  // buttonPassword.value = "Contraseña";
   inputPassword.classList = 'form';
-  inputPassword.placeholder = 'CONTRASEÑA';
   inputPassword.type = 'password';
   inputPassword.id = 'password';
   buttonLogIn.textContent = 'Iniciar Sesión';
@@ -33,20 +35,29 @@ export const login = (onNavigate) => {
   buttonForgotPassword.classList = 'buttons';
   buttonHome.textContent = 'Regresar al inicio';
   buttonHome.classList = 'buttons';
-
   buttonLogInGoogle.classList = 'logoG';
   buttonLogInGoogle.src = 'images/btngo2.png';
+  inputRevealPassword.src = 'images/openEye.png';
+  inputRevealPassword.classList = 'eyeButton';
 
   //se crea ruta para volver al inicio
 
   buttonHome.addEventListener('click', () => onNavigate('/'));
-
-  // se llama el valor de los input
-
   // const textEmail = homeDiv.getElementById("email");
   // const textPassword = homeDiv.getElementById("password");
+  inputRevealPassword.addEventListener('click', () => {
+    if (inputPassword.type == 'password') {
+      inputPassword.type = 'text';
+    } else {
+      inputPassword.type = 'password';
+    }
+  });
 
   buttonLogIn.addEventListener('click', () => {
+    if (inputEmail.value.includes('@') == false)
+      return alert('Ingrese un correo válido');
+    if (inputPassword.value.length < 6)
+      return alert('La contraseña debe tener al menos 6 caracteres');
     logIn(inputEmail.value, inputPassword.value)
       .then(() => {
         alert('Bienvenido');
@@ -76,10 +87,14 @@ export const login = (onNavigate) => {
   });
 
   //se insertan los elementos en el HTML padre(root)
+  homeDiv.appendChild(email);
+
   homeDiv.appendChild(inputEmail);
+  homeDiv.appendChild(password);
   homeDiv.appendChild(inputPassword);
-  homeDiv.appendChild(buttonLogIn);
   homeDiv.appendChild(buttonForgotPassword);
+  homeDiv.appendChild(inputRevealPassword);
+  homeDiv.appendChild(buttonLogIn);
   homeDiv.appendChild(buttonLogInGoogle);
   homeDiv.appendChild(buttonHome);
 

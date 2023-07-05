@@ -1,45 +1,50 @@
 import { home } from './home';
 import { createUser } from '../lib/index';
 import { registerWithGoogle } from '../lib/index';
+import { sendPasswordResetEmail } from 'firebase/auth';
+import { user } from '../firebase';
 
 export const register = (onNavigate) => {
   const homeDiv = document.createElement('div');
-  homeDiv.classList = 'text';
-  homeDiv.textContent = 'Ingresa tu nombre';
+  homeDiv.classList = 'div';
   const buttonHome = document.createElement('button');
   const buttonName = document.createElement('input');
   const buttonNewEmail = document.createElement('input');
   const buttonNewPassword = document.createElement('input');
   const buttonSignIn = document.createElement('button');
   const buttonGoogle = document.createElement('img');
+  const conditionsPassword = document.createElement('p');
+  const buttonRegisterWithGoogle = document.createElement('button');
+  const name = document.createElement('P');
+  const email = document.createElement('p');
+  const password = document.createElement('p');
 
   buttonGoogle.classList = 'logoG';
   buttonGoogle.src = 'images/btngo2.png';
-
-  const conditionsPassword = document.createElement('p');
-  const buttonRegisterWithGoogle = document.createElement('button');
-
-  // buttonName.value = "Nombre";
-
   buttonName.classList = 'form';
-  // buttonNewEmail.value = "Ingresar e-mail";
   buttonNewEmail.classList = 'form';
   buttonNewEmail.placeholder = 'CORREO';
-  // buttonNewPassword.value = "Contraseña";
-  buttonNewPassword.classList = 'form';
-  conditionsPassword.classList = 'text';
   buttonNewPassword.placeholder = 'CONTRASEÑA';
-  conditionsPassword.textContent =
-    'La contraseña debe tener al menos 6 carácteres';
+  buttonNewPassword.classList = 'form';
   buttonNewPassword.type = 'password';
+  conditionsPassword.classList = 'text';
+  conditionsPassword.textContent =
+    '(La contraseña debe tener al menos 6 carácteres)';
   buttonSignIn.textContent = 'Registrarse';
   buttonSignIn.classList = 'buttons';
   buttonHome.textContent = 'Regresar al inicio';
   buttonHome.classList = 'buttons';
-  buttonHome.addEventListener('click', () => onNavigate('/'));
-
   buttonRegisterWithGoogle.classList = 'buttonGoogle';
   buttonRegisterWithGoogle.textContent = 'Registrarse con Google';
+  name.textContent = 'INGRESA TU NOMBRE';
+  name.classList = 'message';
+  email.textContent = 'EMAIL';
+  email.classList = 'message';
+  password.textContent = 'CONTRASEÑA';
+  password.classList = 'message';
+
+  //funcionalidad
+  buttonHome.addEventListener('click', () => onNavigate('/'));
 
   buttonSignIn.addEventListener('click', () => {
     if (buttonNewEmail.value.includes('@') == false)
@@ -66,14 +71,16 @@ export const register = (onNavigate) => {
         alert('Error al iniciar sesión, intente de nuevo');
       });
   });
-
+  homeDiv.appendChild(name);
   homeDiv.appendChild(buttonName);
+  homeDiv.append(email);
   homeDiv.appendChild(buttonNewEmail);
+  homeDiv.appendChild(password);
   homeDiv.appendChild(buttonNewPassword);
+  homeDiv.appendChild(conditionsPassword);
   homeDiv.appendChild(buttonSignIn);
   homeDiv.appendChild(buttonHome);
   homeDiv.appendChild(buttonGoogle);
-  homeDiv.appendChild(conditionsPassword);
 
   return homeDiv;
 };

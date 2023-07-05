@@ -28,13 +28,7 @@ export const recommendations = (onNavigate) => {
   //funcionalidad
   backToTheWall.addEventListener('click', () => onNavigate('/'));
 
-  //recomendationsDiv.innerHTML += `
-  //<textarea id="textareaPost"></textarea>
-  //<button  id="buttonAddPost">Agregar Recomendación</button>
-  //`;
-
   //load puede ser reemplazado por DOMContentLoaded
-
   buttonPost.addEventListener('click', () => {
     if (postContent.value.length < 1) {
       alert('Por favor ingresa algun texto para poder postear');
@@ -49,9 +43,6 @@ export const recommendations = (onNavigate) => {
         });
     }
   });
-
-
-  
 
   //inserción de posts
   //hacer referencia con Doc Data para entrar a cada registro, recorrer cada registro para mostrarlo ... revisar documentacion para traer textos
@@ -75,6 +66,7 @@ export const recommendations = (onNavigate) => {
 
       updateButton.textContent = 'Editar Post';
       updateButton.classList = 'postButtons';
+      
       like.classList = 'like';
       like.src = 'images/like.png';
       likes.classList = 'like';
@@ -97,14 +89,12 @@ export const recommendations = (onNavigate) => {
 
       deleteButton.addEventListener('click', () => {
         deletePost(element.id);
-        console.log('post borrado: '+ element.id)
-        
+        console.log('post borrado: ' + element.id);
       });
 
-      updateButton.addEventListener ('click', () => {
+      updateButton.addEventListener('click', () => {
         updatePost(element.id, element.data().content);
-
-      })
+      });
     });
   }),
     //inserción al HTML

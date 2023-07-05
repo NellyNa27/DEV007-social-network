@@ -14,8 +14,8 @@ const routes = {
   '/recommendations': recommendations,
 };
 
-//PARA RENDERIZAR EN SPA PACKAGE.JSON
-//"start":"serve src/ -s"         "start": "npm run dev",
+//  PARA RENDERIZAR EN SPA PACKAGE.JSON
+//  "start":"serve src/ -s"         "start": "npm run dev",
 
 export const onNavigate = (pathname) => {
   window.history.pushState({}, pathname, window.location.origin + pathname);

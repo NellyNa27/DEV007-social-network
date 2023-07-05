@@ -8,10 +8,7 @@ export const wall = (onNavigate) => {
   wallTitle.classList = 'title';
   buttonRecommendations.classList = 'buttons';
   buttonRecommendations.textContent = 'Recomendaciones';
-  buttonRecommendations.addEventListener('click', () =>
-    onNavigate('/recommendations')
-  );
-
+  buttonRecommendations.addEventListener('click', () => onNavigate('/recommendations'));
   wallDiv.appendChild(wallTitle);
   wallDiv.appendChild(buttonRecommendations);
   return wallDiv;

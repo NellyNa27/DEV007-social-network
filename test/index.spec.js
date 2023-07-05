@@ -1,8 +1,9 @@
 // importamos la funcion que vamos a testear
 // import { login } from "../src/components/login";
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 import {
   createUser,
-  // myFunction,
+  logIn,
   // recoverPassword,
   // registerWithGoogle,
 } from '../src/lib/index';
@@ -13,4 +14,13 @@ describe('createUser', () => {
   });
 });
 
-
+describe('logIn', () => {
+  it('debería ser una función', () => {
+    expect(typeof logIn).toBe('function');
+  });
+});
+describe('createUserWithEmailAndPassword', () => {
+  it('debería ser una función', () => {
+    expect(typeof createUserWithEmailAndPassword).toBe('function');
+  });
+});

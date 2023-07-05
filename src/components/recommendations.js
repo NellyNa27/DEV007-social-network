@@ -1,4 +1,4 @@
-import { createPost, enlistarPost } from '../lib';
+import { createPost, enlistarPost, deletePost, updatePost } from '../lib';
 //creación de elementos
 export const recommendations = (onNavigate) => {
   const recommendationsDiv = document.createElement('div');
@@ -28,13 +28,7 @@ export const recommendations = (onNavigate) => {
   //funcionalidad
   backToTheWall.addEventListener('click', () => onNavigate('/'));
 
-  //recomendationsDiv.innerHTML += `
-  //<textarea id="textareaPost"></textarea>
-  //<button  id="buttonAddPost">Agregar Recomendación</button>
-  //`;
-
   //load puede ser reemplazado por DOMContentLoaded
-
   buttonPost.addEventListener('click', () => {
     if (postContent.value.length < 1) {
       alert('Por favor ingresa algun texto para poder postear');
@@ -49,6 +43,7 @@ export const recommendations = (onNavigate) => {
         });
     }
   });
+
   //inserción de posts
   //hacer referencia con Doc Data para entrar a cada registro, recorrer cada registro para mostrarlo ... revisar documentacion para traer textos
   enlistarPost((callback) => {
@@ -56,30 +51,50 @@ export const recommendations = (onNavigate) => {
     postsDiv.innerHTML = '';
     callback.forEach((element) => {
       //hay que limpiar el post para que no se repita postsDiv.innerHTML = '';
-
+      console.log(element.id);
       // console.log(element.data()); crear contenedores en html para visualizar cada post
       const post = document.createElement('div');
       const deleteButton = document.createElement('button');
       const updateButton = document.createElement('button');
       const like = document.createElement('img');
       const likes = document.createElement('p');
+      const userName = document.createElement('p');
+
       deleteButton.textContent = 'Borrar Post';
       deleteButton.classList = 'postButtons';
+      deleteButton.name = 'botonBorrar';
+
       updateButton.textContent = 'Editar Post';
       updateButton.classList = 'postButtons';
+      
       like.classList = 'like';
       like.src = 'images/like.png';
       likes.classList = 'like';
       likes.textContent = '0';
       post.classList = 'posts';
+
+      userName.appendChild(document.createTextNode(element.id));
+      //
+      deleteButton.setAttribute('id', element.id);
+
       post.appendChild(like);
       post.appendChild(likes);
+      post.appendChild(userName);
       post.appendChild(document.createTextNode(element.data().content));
-
+      //agregar un atributo
       post.appendChild(updateButton);
       post.appendChild(deleteButton);
 
       postsDiv.appendChild(post);
+
+      deleteButton.addEventListener('click', () => {
+        deletePost(element.id);
+        console.log('post borrado: ' + element.id);
+      });
+
+      updateButton.addEventListener('click', () => {
+        updatePost(element.id, element.data().content);
+      });
     });
   }),
     //inserción al HTML

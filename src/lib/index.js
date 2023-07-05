@@ -8,7 +8,7 @@ import {
   signInWithRedirect,
   GoogleAuthProvider,
 } from 'firebase/auth';
-import { collection, addDoc, onSnapshot } from 'firebase/firestore';
+import { collection, addDoc, onSnapshot, deleteDoc, doc, updateDoc } from 'firebase/firestore';
 import { auth, db } from '../firebase';
 
 // en este esrchivo van las funciones de crear, modificar y borrar post, dar like, iniciar sesión con google, comentarios
@@ -42,3 +42,16 @@ export const createPost = (text) => {
 // usar callback
 export const enlistarPost = (callback) =>
   onSnapshot(collection(db, 'posts'), callback);
+
+//Borra POST
+export const deletePost = (id) => {
+  return deleteDoc(doc(db, 'posts', id));
+};
+
+//Editar POST
+export const updatePost = (id, post) => {
+  const postRef = doc(db, 'posts', id);
+  return updateDoc (postRef, {
+    content: post,
+  });
+};

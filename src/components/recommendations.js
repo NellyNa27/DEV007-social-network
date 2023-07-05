@@ -1,5 +1,10 @@
 import { auth } from '../firebase';
-import { createPost, enlistarPost } from '../lib';
+import {
+  createPost,
+  enlistarPost,
+  deletePost,
+  updatePost,
+} from '../lib';
 
 //  creación de elementos
 export const recommendations = (onNavigate) => {
@@ -27,11 +32,7 @@ export const recommendations = (onNavigate) => {
   backToTheWall.id = 'close';
   //  funcionalidad
   backToTheWall.addEventListener('click', () => onNavigate('/'));
-  //  recomendationsDiv.innerHTML += `
-  //  <textarea id="textareaPost"></textarea>
-  //  <button  id="buttonAddPost">Agregar Recomendación</button>
-  //  `;
-  //  load puede ser reemplazado por DOMContentLoaded?
+  //  load puede ser reemplazado por DOMContentLoaded
   buttonPost.addEventListener('click', () => {
     if (postContent.value.length < 1) {
       alert('Por favor ingresa algun texto para poder postear');
@@ -64,6 +65,7 @@ export const recommendations = (onNavigate) => {
       const userName = document.createElement('p');
       deleteButton.textContent = 'Borrar Post';
       deleteButton.classList = 'postButtons';
+      deleteButton.name = 'botonBorrar';
       updateButton.textContent = 'Editar Post';
       updateButton.classList = 'postButtons';
       likeLoge.classList = 'like';
@@ -73,13 +75,23 @@ export const recommendations = (onNavigate) => {
       post.classList = 'posts';
       userName.classList = 'userName';
       userName.appendChild(document.createTextNode(auth.currentUser.email));
+      userName.appendChild(document.createTextNode(element.id));
+      deleteButton.setAttribute('id', element.id);
       post.appendChild(likeLoge);
       post.appendChild(likeNumber);
+      post.appendChild(userName);
       post.appendChild(document.createTextNode(element.data().content));
-      post.append(userName);
+      //  agregar un atributo
       post.appendChild(updateButton);
       post.appendChild(deleteButton);
       postsDiv.appendChild(post);
+      deleteButton.addEventListener('click', () => {
+        deletePost(element.id);
+      // console.log('post borrado: '+element.id);
+      });
+      updateButton.addEventListener('click', () => {
+        updatePost(element.id, element.data().content);
+      });
     });
   });
   //  inserción al HTML

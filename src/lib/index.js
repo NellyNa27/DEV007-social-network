@@ -30,9 +30,11 @@ export const registerWithGoogle = () => {
   return signInWithPopup(auth, provider);
 };
 // consultar si es necesario el await
-export const createPost = (text) => {
+export const createPost = (text, email) => {
   addDoc(collection(db, 'posts'), {
     content: text,
+    email: email,
+    like:[] 
   });
 };
 // usar callback
@@ -48,5 +50,6 @@ export const updatePost = (id, post) => {
   const postRef = doc(db, 'posts', id);
   return updateDoc(postRef, {
     content: post,
+
   });
 };

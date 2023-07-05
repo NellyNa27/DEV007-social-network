@@ -37,7 +37,7 @@ export const recommendations = (onNavigate) => {
     if (postContent.value.length < 1) {
       alert('Por favor ingresa algun texto para poder postear');
     } else {
-      createPost(postContent.value)
+      createPost(postContent.value, auth.currentUser.email)
         .then(() => {
           alert('Post creado');
           postContent.value = '';
@@ -63,6 +63,8 @@ export const recommendations = (onNavigate) => {
       const likeLoge = document.createElement('img');
       const likeNumber = document.createElement('p');
       const userName = document.createElement('p');
+      const userMail = document.createElement ('div');
+      
       deleteButton.textContent = 'Borrar Post';
       deleteButton.classList = 'postButtons';
       deleteButton.name = 'botonBorrar';
@@ -74,12 +76,17 @@ export const recommendations = (onNavigate) => {
       likeNumber.textContent = '0';
       post.classList = 'posts';
       userName.classList = 'userName';
-      userName.appendChild(document.createTextNode(auth.currentUser.email));
-      userName.appendChild(document.createTextNode(element.id));
+      userMail.classList = 'datosUser'
+
+      userName.appendChild(document.createTextNode(element.data().email));
+      console.log(element);
+      //userName.appendChild(document.createTextNode(element.id));
       deleteButton.setAttribute('id', element.id);
-      post.appendChild(likeLoge);
-      post.appendChild(likeNumber);
-      post.appendChild(userName);
+      post.appendChild(userMail);
+
+      userMail.appendChild(likeLoge);
+      userMail.appendChild(likeNumber);
+      userMail.appendChild(userName);
       post.appendChild(document.createTextNode(element.data().content));
       //  agregar un atributo
       post.appendChild(updateButton);
@@ -90,7 +97,11 @@ export const recommendations = (onNavigate) => {
       // console.log('post borrado: '+element.id);
       });
       updateButton.addEventListener('click', () => {
-        updatePost(element.id, element.data().content);
+        const postReset = prompt('Edita tu recomendación: ');
+        updatePost(element.id, postReset);
+      });
+      likeLoge.addEventListener('click', () => {
+        
       });
     });
   });

@@ -182,19 +182,22 @@ footer {
   font-family: 'Source Sans 3', sans-serif;
   text-align: center;
 }
-.like {
-  width: 30px;
-  height: 30px;
+
+
+.userMail{
   display: flex;
-  align-self: flex-end;
-  margin-right: 10 px;
-  font-size: larger;
-  color: white;
+
 }
+
+.like{
+  width: 2rem;
+  margin: 0.5rem;
+  color: rgb(255, 255, 255);
+}
+
 .userName {
+  margin: 0.5rem;
   color: white;
-  display: flex;
-  justify-content: flex-end;
 }
 
 #close {
@@ -204,6 +207,8 @@ footer {
   width: 40px;
   height: 40px;
 }
+
+
 @media only screen and (min-width: 415px) {
   body {
     display: flex;
@@ -221,9 +226,6 @@ footer {
     width: 800px;
     display: flex;
     align-self: center;
-  }
-  .like {
-    margin-right: 40px;
   }
   .background {
     display: none;

@@ -7,7 +7,6 @@ import {
 } from 'firebase/auth';
 import { collection, addDoc, onSnapshot } from 'firebase/firestore';
 import { auth, db } from '../firebase';
-
 // En este archivo se declaran las funciones// promesas
 //  las promesas se consumen en los otros archivos js
 export const createUser = (email, contraseña) => {

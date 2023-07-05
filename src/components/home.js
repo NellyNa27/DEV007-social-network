@@ -29,6 +29,5 @@ export const home = (onNavigate) => {
   homeDiv.appendChild(buttonLogin);
   homeDiv.appendChild(buttonRegister);
   // homeDiv.appendChild(buttonGoogle);
-
   return homeDiv;
 };

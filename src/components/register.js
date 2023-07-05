@@ -14,13 +14,10 @@ export const register = (onNavigate) => {
   const name = document.createElement('P');
   const email = document.createElement('p');
   const password = document.createElement('p');
-
   buttonGoogle.classList = 'logoG';
   buttonGoogle.src = 'images/btngo2.png';
   buttonName.classList = 'form';
   buttonNewEmail.classList = 'form';
-  buttonNewEmail.placeholder = 'CORREO';
-  buttonNewPassword.placeholder = 'CONTRASEÑA';
   buttonNewPassword.classList = 'form';
   buttonNewPassword.type = 'password';
   conditionsPassword.classList = 'text';
@@ -40,6 +37,7 @@ export const register = (onNavigate) => {
   //  funcionalidad
   buttonHome.addEventListener('click', () => onNavigate('/'));
   buttonSignIn.addEventListener('click', () => {
+    if (buttonName.value.length === 0) return alert('Por favor ingresa tu nombre');
     if (buttonNewEmail.value.includes('@') === false) return alert('Ingrese un correo válido');
     if (buttonNewPassword.value.length < 6) return alert('La contraseña debe tener al menos 6 caracteres');
     return createUser(buttonNewEmail.value, buttonNewPassword.value)
@@ -51,7 +49,6 @@ export const register = (onNavigate) => {
         alert('Error al crear el usuario, intente de nuevo');
       });
   });
-
   buttonRegisterWithGoogle.addEventListener('click', () => {
     registerWithGoogle()
       .then(() => {
@@ -69,8 +66,7 @@ export const register = (onNavigate) => {
   homeDiv.appendChild(buttonNewPassword);
   homeDiv.appendChild(conditionsPassword);
   homeDiv.appendChild(buttonSignIn);
-  homeDiv.appendChild(buttonHome);
   homeDiv.appendChild(buttonGoogle);
-
+  homeDiv.appendChild(buttonHome);
   return homeDiv;
 };

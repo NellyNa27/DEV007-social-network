@@ -13,6 +13,7 @@ export const login = (onNavigate) => {
   const inputRevealPassword = document.createElement('img');
   const email = document.createElement('p');
   const password = document.createElement('p');
+  const inputRevealPasswordText = document.createElement('p');
   //  se da características de HTML como valor, id,clase, tipo
   homeDiv.classList = 'div';
   email.textContent = 'EMAIL';
@@ -34,6 +35,8 @@ export const login = (onNavigate) => {
   buttonLogInGoogle.classList = 'logoG';
   buttonLogInGoogle.src = 'images/btngo2.png';
   inputRevealPassword.src = 'images/openEye.png';
+  inputRevealPasswordText.textContent = 'Mostrar/Ocultar contraseña';
+  inputRevealPasswordText.classList = 'message';
   inputRevealPassword.classList = 'eyeButton';
   //  se crea ruta para volver al inicio
   buttonHome.addEventListener('click', () => onNavigate('/'));
@@ -84,9 +87,10 @@ export const login = (onNavigate) => {
   homeDiv.appendChild(inputEmail);
   homeDiv.appendChild(password);
   homeDiv.appendChild(inputPassword);
-  homeDiv.appendChild(buttonForgotPassword);
   homeDiv.appendChild(inputRevealPassword);
+  homeDiv.appendChild(inputRevealPasswordText);
   homeDiv.appendChild(buttonLogIn);
+  homeDiv.appendChild(buttonForgotPassword);
   homeDiv.appendChild(buttonLogInGoogle);
   homeDiv.appendChild(buttonHome);
   return homeDiv;

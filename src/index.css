@@ -41,15 +41,13 @@ header {
   display: flex;
   flex-direction: center;
   height: 50px;
-  width: 250px;
+  width: 160px;
   border: none;
   color: white;
   cursor: pointer;
-}
-.logoG:hover {
-  background-color: #a07f6d;
-}
+  border-radius: 8px;
 
+} 
 .div {
   display: flex;
   flex-direction: column;
@@ -66,7 +64,7 @@ header {
   margin: 0.3rem;
   background-color: #25130f;
   height: 50px;
-  width: 250px;
+  width: 160px;
   border-radius: 8px;
   border: none;
   color: white;
@@ -78,16 +76,15 @@ header {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  line-height: 50px;
   background-color: #25130f;
   height: 50px;
-  width: 200px;
+  width: 160px;
   border-radius: 8px;
   border: none;
   color: white;
   cursor: pointer;
-  margin: 0.3rem;
   font-family: 'Poppins', sans-serif;
+  margin: 5px;
 }
 .buttons:hover {
   background-color: #a07f6d;
@@ -99,22 +96,22 @@ header {
   line-height: 50px;
   background-color: #a07f6d;
   opacity: 50%;
-  height: 50px;
-  width: 250px;
+  height: 30px;
+  width: 160px;
   border-radius: 8px;
   border: none;
   color: white;
-  margin: 0.3rem;
   text-align: center;
 }
 
 .text {
-  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   color: white;
   font-family: 'Poppins', sans-serif;
+  font-size: small;
+  display: none;
 }
 
 .wallDiv {
@@ -138,16 +135,19 @@ header {
   display: flex;
   flex-direction: column;
   width: 100%;
+  justify-content: center;
+  align-items: center;
 }
 .message {
   color: white;
   font-family: 'Source Sans 3', sans-serif;
   font-weight: bold;
+  font-size: small;
 }
 .eyeButton {
-  width: 15px;
-  height: 15px;
-  background-color: aliceblue;
+  width: 30px;
+  height: 30px;
+  background-color: white;
 }
 footer {
   background-color: #b8b5b0;
@@ -170,15 +170,17 @@ footer {
   justify-content: center;
   align-self: center;
   border-radius: 8px;
+
 }
 .postContent {
   display: flex;
   width: 200px;
   height: 100px;
-  align-items: center;
+  text-justify: center;
   border-radius: 8px;
   scroll-behavior: smooth;
   font-family: 'Source Sans 3', sans-serif;
+  text-align: center;
 }
 .like {
   width: 30px;
@@ -189,7 +191,6 @@ footer {
   font-size: larger;
   color: white;
 }
-
 .userName {
   color: white;
   display: flex;
@@ -232,5 +233,31 @@ footer {
   }
   #close {
     display: flex;
+  }
+  .buttons {
+    width: 250px;
+    height: 50px;
+  }
+  .logoG{
+    width: 250px;
+    height: 50px;
+  }
+  .buttonsHome{
+    width: 250px;
+    height: 50px;
+  }
+  .form {
+    width: 250px;
+    height: 50px;
+  }
+  .text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: small;
+    
   }
 }

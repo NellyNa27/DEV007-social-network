@@ -46,8 +46,7 @@ header {
   color: white;
   cursor: pointer;
   border-radius: 8px;
-
-} 
+}
 .div {
   display: flex;
   flex-direction: column;
@@ -170,7 +169,6 @@ footer {
   justify-content: center;
   align-self: center;
   border-radius: 8px;
-
 }
 .postContent {
   display: flex;
@@ -183,13 +181,11 @@ footer {
   text-align: center;
 }
 
-
-.userMail{
+.userMail {
   display: flex;
-
 }
 
-.like{
+.like {
   width: 2rem;
   margin: 0.5rem;
   color: rgb(255, 255, 255);
@@ -207,7 +203,6 @@ footer {
   width: 40px;
   height: 40px;
 }
-
 
 @media only screen and (min-width: 415px) {
   body {
@@ -240,11 +235,11 @@ footer {
     width: 250px;
     height: 50px;
   }
-  .logoG{
+  .logoG {
     width: 250px;
     height: 50px;
   }
-  .buttonsHome{
+  .buttonsHome {
     width: 250px;
     height: 50px;
   }
@@ -260,6 +255,5 @@ footer {
     color: white;
     font-family: 'Poppins', sans-serif;
     font-size: small;
-    
   }
 }

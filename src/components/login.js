@@ -10,7 +10,6 @@ export const login = (onNavigate) => {
   const buttonLogIn = document.createElement('button');
   const buttonForgotPassword = document.createElement('button');
   const buttonLogInGoogle = document.createElement('img');
-  const inputRevealPassword = document.createElement('img');
   const email = document.createElement('p');
   const password = document.createElement('p');
   const inputRevealPasswordText = document.createElement('p');
@@ -34,19 +33,19 @@ export const login = (onNavigate) => {
   buttonHome.classList = 'buttons';
   buttonLogInGoogle.classList = 'logoG';
   buttonLogInGoogle.src = 'images/btngo2.png';
-  inputRevealPassword.src = 'images/openEye.png';
-  inputRevealPasswordText.textContent = 'Mostrar/Ocultar contraseña';
-  inputRevealPasswordText.classList = 'message';
-  inputRevealPassword.classList = 'eyeButton';
+  inputRevealPasswordText.textContent = 'Mostrar contraseña';
+  inputRevealPasswordText.classList = 'buttons';
   //  se crea ruta para volver al inicio
   buttonHome.addEventListener('click', () => onNavigate('/'));
-  //  const textEmail = homeDiv.getElementById("email");
-  //  const textPassword = homeDiv.getElementById("password");
-  inputRevealPassword.addEventListener('click', () => {
+  const home = document.getElementById('home');
+  home.addEventListener('click', () => onNavigate('/'));
+  inputRevealPasswordText.addEventListener('click', () => {
     if (inputPassword.type === 'password') {
       inputPassword.type = 'text';
+      inputRevealPasswordText.textContent = 'Ocultar contraseña';
     } else {
       inputPassword.type = 'password';
+      inputRevealPasswordText.textContent = 'Mostrar contraseña';
     }
   });
   buttonLogIn.addEventListener('click', () => {
@@ -76,6 +75,7 @@ export const login = (onNavigate) => {
   buttonLogInGoogle.addEventListener('click', () => {
     registerWithGoogle()
       .then(() => {
+        alert('Bienvenido');
         onNavigate('/recommendations');
       })
       .catch(() => {
@@ -87,7 +87,6 @@ export const login = (onNavigate) => {
   homeDiv.appendChild(inputEmail);
   homeDiv.appendChild(password);
   homeDiv.appendChild(inputPassword);
-  homeDiv.appendChild(inputRevealPassword);
   homeDiv.appendChild(inputRevealPasswordText);
   homeDiv.appendChild(buttonLogIn);
   homeDiv.appendChild(buttonForgotPassword);

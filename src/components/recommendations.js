@@ -4,8 +4,9 @@ import {
   enlistarPost,
   deletePost,
   updatePost,
+  removeLike,
+  addLike,
 } from '../lib';
-
 //  creación de elementos
 export const recommendations = (onNavigate) => {
   const recommendationsDiv = document.createElement('div');
@@ -22,7 +23,6 @@ export const recommendations = (onNavigate) => {
   recommendationsDiv.classList = 'div';
   recommendationsTitle.classList = 'title';
   recommendationsTitle.textContent = 'Recomendaciones';
-  postContent.type = 'text';
   postContent.classList = 'postContent';
   postContent.placeholder = 'Escribe tu recomendación acá';
   buttonPost.classList = 'buttons';
@@ -32,7 +32,8 @@ export const recommendations = (onNavigate) => {
   backToTheWall.id = 'close';
   //  funcionalidad
   backToTheWall.addEventListener('click', () => onNavigate('/'));
-  //  load puede ser reemplazado por DOMContentLoaded
+  const home = document.getElementById('home');
+  home.addEventListener('click', () => onNavigate('/'));
   buttonPost.addEventListener('click', () => {
     if (postContent.value.length < 1) {
       alert('Por favor ingresa algun texto para poder postear');
@@ -48,10 +49,6 @@ export const recommendations = (onNavigate) => {
     }
   });
   //  inserción de posts
-  // hacer referencia con Doc Data para entrar a cada registro
-  // recorrer cada registro para mostrarlo
-  // revisar documentacion para traer textos
-  // location.addEventListener ("load", ()=> { });
   enlistarPost((callback) => {
     console.log(callback);
     postsDiv.innerHTML = '';
@@ -63,8 +60,7 @@ export const recommendations = (onNavigate) => {
       const likeLoge = document.createElement('img');
       const likeNumber = document.createElement('p');
       const userName = document.createElement('p');
-      const userMail = document.createElement ('div');
-      
+      const userMail = document.createElement('div');
       deleteButton.textContent = 'Borrar Post';
       deleteButton.classList = 'postButtons';
       deleteButton.name = 'botonBorrar';
@@ -73,17 +69,17 @@ export const recommendations = (onNavigate) => {
       likeLoge.classList = 'like';
       likeLoge.src = 'images/like.png';
       likeNumber.classList = 'like';
-      likeNumber.textContent = '0';
+      // likeNumber.textContent = '0';
       post.classList = 'posts';
       userName.classList = 'userName';
-      userMail.classList = 'datosUser'
-
+      userMail.classList = 'datosUser';
       userName.appendChild(document.createTextNode(element.data().email));
       console.log(element);
-      //userName.appendChild(document.createTextNode(element.id));
+      likeNumber.appendChild(
+        document.createTextNode(element.data().like.length),
+      );
       deleteButton.setAttribute('id', element.id);
       post.appendChild(userMail);
-
       userMail.appendChild(likeLoge);
       userMail.appendChild(likeNumber);
       userMail.appendChild(userName);
@@ -93,15 +89,35 @@ export const recommendations = (onNavigate) => {
       post.appendChild(deleteButton);
       postsDiv.appendChild(post);
       deleteButton.addEventListener('click', () => {
-        deletePost(element.id);
-      // console.log('post borrado: '+element.id);
+        if (auth.currentUser.email !== element.data().email) {
+          alert('Sólo puedes eliminar tus propios post');
+          updateButton.disabled = true;
+        } else {
+          deletePost(element.id);
+        }
       });
       updateButton.addEventListener('click', () => {
-        const postReset = prompt('Edita tu recomendación: ');
-        updatePost(element.id, postReset);
+        if (auth.currentUser.email !== element.data().email) {
+          alert('Sólo puedes editar tus propios post');
+          updateButton.disabled = true;
+        } else {
+          const postReset = prompt('Edita tu recomendación: ');
+          updatePost(element.id, postReset);
+        }
       });
       likeLoge.addEventListener('click', () => {
-        
+        likeNumber.innerHTML = '';
+        if (!element.data().like.includes(auth.currentUser.email)) {
+          addLike(element.id, auth.currentUser.email);
+          likeNumber.appendChild(
+            document.createTextNode(element.data().like.length),
+          );
+        } else {
+          removeLike(element.id, auth.currentUser.email);
+          likeNumber.appendChild(
+            document.createTextNode(element.data().like.length),
+          );
+        }
       });
     });
   });

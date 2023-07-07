@@ -14,6 +14,7 @@ export const register = (onNavigate) => {
   const name = document.createElement('P');
   const email = document.createElement('p');
   const password = document.createElement('p');
+  const inputRevealPasswordText = document.createElement('button');
   buttonGoogle.classList = 'logoG';
   buttonGoogle.src = 'images/btngo2.png';
   buttonName.classList = 'form';
@@ -34,8 +35,21 @@ export const register = (onNavigate) => {
   email.classList = 'message';
   password.textContent = 'CONTRASEÑA';
   password.classList = 'message';
+  inputRevealPasswordText.textContent = 'Mostrar contraseña';
+  inputRevealPasswordText.classList = 'buttons';
   //  funcionalidad
   buttonHome.addEventListener('click', () => onNavigate('/'));
+  const home = document.getElementById('home');
+  home.addEventListener('click', () => onNavigate('/'));
+  inputRevealPasswordText.addEventListener('click', () => {
+    if (buttonNewPassword.type === 'password') {
+      buttonNewPassword.type = 'text';
+      inputRevealPasswordText.textContent = 'Ocultar contraseña';
+    } else {
+      buttonNewPassword.type = 'password';
+      inputRevealPasswordText.textContent = 'Mostrar contraseña';
+    }
+  });
   buttonSignIn.addEventListener('click', () => {
     if (buttonName.value.length === 0) return alert('Por favor ingresa tu nombre');
     if (buttonNewEmail.value.includes('@') === false) return alert('Ingrese un correo válido');
@@ -64,6 +78,7 @@ export const register = (onNavigate) => {
   homeDiv.appendChild(buttonNewEmail);
   homeDiv.appendChild(password);
   homeDiv.appendChild(buttonNewPassword);
+  homeDiv.appendChild(inputRevealPasswordText);
   homeDiv.appendChild(conditionsPassword);
   homeDiv.appendChild(buttonSignIn);
   homeDiv.appendChild(buttonGoogle);

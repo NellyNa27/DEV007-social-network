@@ -183,22 +183,28 @@ footer {
   text-align: center;
 }
 
-
-.userMail{
-  display: flex;
-
+.datosUser{
+  display: flex;  
+  
 }
-
-.like{
-  width: 2rem;
-  margin: 0.5rem;
-  color: rgb(255, 255, 255);
-}
-
 .userName {
-  margin: 0.5rem;
+  margin: 0.8rem;
+  color: white;
+  justify-content: center;
+}
+.like{
+
+  width: 2rem;
+  margin: 0.8rem;
   color: white;
 }
+.likeCount{
+  width: 2rem;
+  margin: 0.8rem;
+  color: white;
+}
+
+
 
 #close {
   display: none;

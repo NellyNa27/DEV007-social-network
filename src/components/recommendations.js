@@ -72,7 +72,7 @@ export const recommendations = (onNavigate) => {
       updateButton.classList = 'postButtons';
       likeLoge.classList = 'like';
       likeLoge.src = 'images/like.png';
-      likeNumber.classList = 'like';
+      likeNumber.classList = 'likeCount';
       likeNumber.textContent = '0';
       post.classList = 'posts';
       userName.classList = 'userName';
@@ -83,10 +83,11 @@ export const recommendations = (onNavigate) => {
       //userName.appendChild(document.createTextNode(element.id));
       deleteButton.setAttribute('id', element.id);
       post.appendChild(userMail);
-
+      
+      userMail.appendChild(userName);
       userMail.appendChild(likeLoge);
       userMail.appendChild(likeNumber);
-      userMail.appendChild(userName);
+     
       post.appendChild(document.createTextNode(element.data().content));
       //  agregar un atributo
       post.appendChild(updateButton);

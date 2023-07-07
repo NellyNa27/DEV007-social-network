@@ -46,7 +46,8 @@ header {
   color: white;
   cursor: pointer;
   border-radius: 8px;
-}
+
+} 
 .div {
   display: flex;
   flex-direction: column;
@@ -169,6 +170,7 @@ footer {
   justify-content: center;
   align-self: center;
   border-radius: 8px;
+
 }
 .postContent {
   display: flex;
@@ -184,8 +186,6 @@ footer {
 .datosUser{
   display: flex;  
   
-.userMail {
-  display: flex;
 }
 .userName {
   margin: 0.8rem;
@@ -213,6 +213,7 @@ footer {
   width: 40px;
   height: 40px;
 }
+
 
 @media only screen and (min-width: 415px) {
   body {
@@ -245,11 +246,11 @@ footer {
     width: 250px;
     height: 50px;
   }
-  .logoG {
+  .logoG{
     width: 250px;
     height: 50px;
   }
-  .buttonsHome {
+  .buttonsHome{
     width: 250px;
     height: 50px;
   }
@@ -265,5 +266,6 @@ footer {
     color: white;
     font-family: 'Poppins', sans-serif;
     font-size: small;
+    
   }
 }

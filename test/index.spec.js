@@ -11,38 +11,44 @@ import {
   updatePost,
   addLike,
   removeLike,
-}
-  from '../src/lib/index';
+} from '../src/lib/index';
+
 /* eslint-disable */
- //jest.mock('firebase/auth')
-
- import * as firebaseFunctions from 'firebase/auth'
-
- jest.spyOn(firebaseFunctions, 'signInWithEmailAndPassword');
-
-
+jest.mock('firebase/auth', () => {
+  return {
+    GoogleAuthProvider: jest.fn(),
+    getAuth: jest.fn(() => ({
+      currentUser: {
+        displayName: 'Test User',
+      },
+    })),
+    signInWithEmailAndPassword: jest.fn(),
+  };
+});
 
 describe('logIn', () => {
-  console.log(logIn)
+  console.log(logIn);
   // await cuando se use el response
   it('is a function', async () => {
     expect(typeof logIn).toBe('function');
   });
 
-  /*
-  it.skip('return an object', async () => {
+  it('return an object', async () => {
+    signInWithEmailAndPassword.mockReturnValueOnce(
+      new Promise((resolve, reject) => resolve({}))
+    );
     const response = await logIn();
-    expect(typeof logIn()).toBe('object');
+    expect(typeof response).toBe('object');
   });
-  */
-  it('must call signinwithemailandpassword al ser ejecutada', async () => { 
-  await logIn('isa@isa.cl','isaisa');
-  expect(signInWithEmailAndPassword).toHaveBeenCalled();
-  // it('must return an object'), async () =>{ 
-  //   signInWithEmailAndPassword.mockReturnValueOnce({})
-  // const response = await logIn('isa@isa.cl','isaisa');
-  // expect()}
-});
+
+  it('must call signinwithemailandpassword al ser ejecutada', async () => {
+    await logIn('isa@isa.cl', 'isaisa');
+    expect(signInWithEmailAndPassword).toHaveBeenCalled();
+    // it('must return an object'), async () =>{
+    //   signInWithEmailAndPassword.mockReturnValueOnce({})
+    // const response = await logIn('isa@isa.cl','isaisa');
+    // expect()}
+  });
 });
 /*
 

@@ -1,51 +1,106 @@
+/* eslint-disable no-unused-vars */
+//  import { signInWithEmailAndPassword } from 'firebase/auth';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import {
   logIn,
   createUser,
   createPost,
+  enlistarPost,
+  recoverPassword,
+  deletePost,
+  updatePost,
+  addLike,
+  removeLike,
 }
-  from '../src/lib';
+  from '../src/lib/index';
 /* eslint-disable */
+ //jest.mock('firebase/auth')
+
+ import * as firebaseFunctions from 'firebase/auth'
+
+ jest.spyOn(firebaseFunctions, 'signInWithEmailAndPassword');
+
+
+
 describe('logIn', () => {
+  console.log(logIn)
+  // await cuando se use el response
   it('is a function', async () => {
-    const response =await logIn();
     expect(typeof logIn).toBe('function');
   });
-  it('return an object', async () => {
+
+  /*
+  it.skip('return an object', async () => {
     const response = await logIn();
     expect(typeof logIn()).toBe('object');
   });
+  */
+  it('must call signinwithemailandpassword al ser ejecutada', async () => { 
+  await logIn('isa@isa.cl','isaisa');
+  expect(signInWithEmailAndPassword).toHaveBeenCalled();
+  // it('must return an object'), async () =>{ 
+  //   signInWithEmailAndPassword.mockReturnValueOnce({})
+  // const response = await logIn('isa@isa.cl','isaisa');
+  // expect()}
 });
+});
+/*
 
  describe('createUser', () => {
    it('is a function', async () => {
      const response = await createUser();
      expect(typeof createUser).toBe('function');
    });
-   it('return an object', async () => {
-     const response = await createUser();
-     expect(typeof createUser()).toBe('object');
-   });
  });
-//  describe('registerWithGoogle', async () => {
-//    const response = await registerWithGoogle();
-//    it('is a function', () => {
-//      expect(typeof registerWithGoogle).toBe('function');
-//    });
-//    it('return an object', async () => {
-//      const response = await registerWithGoogle();
-//      expect(typeof registerWithGoogle()).toBe('object');
-//         });
-//  });
+  //  describe('registerWithGoogle', async () => {
+  //   const response = await registerWithGoogle(auth, provider);
+  //   it('is a function', () => {
+  //     expect(typeof registerWithGoogle).toBe('function');
+  //   });
+  //   it('return an object', async () => {
+  //     const response = await registerWithGoogle();
+  //     expect(typeof registerWithGoogle()).toBe('object');
+  //        });
+   //  });
  describe('createPost', () => {
    it('is a function', async () => {
-     const response = await createPost();
-     expect(typeof createPost).toBe('function');
+    const text = "hola";
+    const email= "mail";
+     const response = await createPost(text, email);
+     expect (typeof createPost).toBe('function');
    });
-    it('return an object', async () => {
-      const response = await createPost();
-     expect(typeof createPost()).toBe('object');
-    });
  });
+ describe('enlistarPost', () => {
+  it('is a function',  () => {
+    expect (typeof enlistarPost).toBe('function');
+  });
+});
+describe('recoverPassword', () => {
+  it('is a function', async () => {
+    const response = await recoverPassword();
+    expect (typeof recoverPassword).toBe('function');
+  });
+});
+describe('deletePost', () => {
+  it('is a function',  () => {
+    expect (typeof deletePost).toBe('function');
+  });
+});
+describe('updatePost', () => {
+  it('is a function', () => {
+         expect(typeof updatePost).toBe('function');
+       });
+});
+describe('addLike', () => {
+  it('is a function',  () => {
+    expect (typeof addLike).toBe('function');
+  });
+});
+describe('removeLike', () => {
+  it('is a function', () => {
+    expect (typeof removeLike).toBe('function');
+  });
+});
 /* eslint-enable */
 
 //

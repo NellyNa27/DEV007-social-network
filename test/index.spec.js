@@ -27,7 +27,6 @@ jest.mock('firebase/auth', () => {
 });
 
 describe('logIn', () => {
-  console.log(logIn);
   // await cuando se use el response
   it('is a function', async () => {
     expect(typeof logIn).toBe('function');
@@ -51,23 +50,24 @@ describe('logIn', () => {
   });
 });
 /*
-
  describe('createUser', () => {
-   it('is a function', async () => {
+   it('is a promise', async () => {
      const response = await createUser();
      expect(typeof createUser).toBe('function');
    });
  });
-  //  describe('registerWithGoogle', async () => {
-  //   const response = await registerWithGoogle(auth, provider);
-  //   it('is a function', () => {
-  //     expect(typeof registerWithGoogle).toBe('function');
-  //   });
-  //   it('return an object', async () => {
-  //     const response = await registerWithGoogle();
-  //     expect(typeof registerWithGoogle()).toBe('object');
-  //        });
-   //  });
+ 
+    describe('registerWithGoogle', async () => {
+     const response = await registerWithGoogle(auth, provider);
+     it('is a function', () => {
+       expect(typeof registerWithGoogle).toBe('function');
+     });
+     it('return an object', async () => {
+      const response = await registerWithGoogle();
+      expect(typeof registerWithGoogle()).toBe('object');
+          });
+     });
+     */
  describe('createPost', () => {
    it('is a function', async () => {
     const text = "hola";
@@ -81,6 +81,7 @@ describe('logIn', () => {
     expect (typeof enlistarPost).toBe('function');
   });
 });
+console.log(typeof recoverPassword);
 describe('recoverPassword', () => {
   it('is a function', async () => {
     const response = await recoverPassword();

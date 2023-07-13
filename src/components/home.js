@@ -7,7 +7,6 @@ export const home = (onNavigate) => {
   const buttonLogin = document.createElement('button');
   const buttonRegister = document.createElement('button');
   const buttonGoogle = document.createElement('img');
-
   homeDiv.classList = 'div';
   buttonRegister.textContent = 'Regístrate';
   buttonRegister.classList = 'buttonsHome';

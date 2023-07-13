@@ -4,7 +4,10 @@
 
 - [1. Preámbulo](#1-preámbulo)
 - [2. Resumen del proyecto](#2-resumen-del-proyecto)
-- [3. Formulario e historias de Usuario](#3-formulario-de-usuario)
+- [3. Descripción](#3-Descripción)
+- [4. Ejecución](#2-Ejecución)
+
+
 
 ## 1. Preámbulo
 
@@ -27,7 +30,7 @@ Tras los avances de la tecnología, nuestra cotidianidad se ve cada vez más y m
 Es por ello que decidimos crear ésta red social en la que no solamente podamos compartir gustos en común, si no disfrutar pequeños placeres de la vida cotidiana como bien podría ser una taza de café, ya sea de camino al trabajo o que busque una experiencia más selecta, cualquier persona pueda dejar por un momento el estrés diario y darse unos minutos para entrar al Rincon del Cafe.Únete a nosotros mientras exploramos el mundo del café juntos y aprovechamos nuestra pasión para crear momentos inolvidables.
 ![](https://media.istockphoto.com/id/1284603827/es/foto/reuni%C3%B3n-de-amigos-en-la-cafeter%C3%ADa-en-un-fin-de-semana.jpg?s=612x612&w=0&k=20&c=qenRMLujVx7mc8EtsRUCvDycgFl_Ekixb0BMgmEg0UY=)
 
-### Descripción
+## 3. Descripción
 
 Nuestra plataforma web busca ser un punto de encuentro para la comunidad cafetera, donde la experiencia y el conocimiento se fusionan en un solo lugar. Aquí puedes compartir tus mejores descubrimientos, desde ese pequeño café escondido en una esquina hasta la última innovación en métodos de preparación. Publica tus recomendaciones, recetas y técnicas favoritas para que otros amantes del café las descubran y las prueben. Además, podrás interactuar con otros usuarios, comentar en sus publicaciones, intercambiar ideas y ampliar tus horizontes. ¡Deja que la cafeína fluya y las conversaciones se vuelvan infinitas en nuestra plataforma social del café!
 
@@ -86,7 +89,7 @@ Para esta historia se activó la base de datos de **Cloud firestore** , creando 
 
 La cuarta historia de usuario busca la interacción entre los usuarios a través de la calificación de las publicaciones. En este caso se determinó con la posibilidad de **Dar Likes a las publicaciones** para poder dar puntos de aprobación entre usuarios.
 
-# Ejecución
+## 4. Ejecución
 
 Para la ejecución del proyecto se dividió el trabajo en:
 
@@ -96,13 +99,33 @@ El esqueleto de la aplicación se dió a través de un archivo **HTML** que fue 
 Para poder crear la **SPA** se utilizó un archivo de **index.html** que se llamó desde un archivo **index.js** para poder aplicar la navegación entre distintas vistas del usuario, según la ruta a seguir.
 Para que esto sea posible se insertó elementos html desde los respectivos archivos js , desde los cuales se hizo manipulación activa del **DOM**.
 
+![](https://i.postimg.cc/x8BqVNYd/bajafidelidad.png)
+
+
+
 #### Funcionalidad
 
 El lenguaje de programación elegido fue Javascript Vanilla, descartando la utilización de librerías o frameworks.
 En este caso fue fundamental la manipulación de archivos primitivos y no primitivos y el uso de promesas para implementar asincronía en la funcionalidad de la aplicación.
 Cabe destacar que se utilizó la estructura de módulos para permitir la importación y exportación de funcionalidad entre archivos.
+Asi mismo la funcionalidad fue puesta a prueba durante la realización del proyecto para que pudieramos comprobar que la  interfaz y diseño no solamente fuera funcional si no tambien comoda e intuitiva para nuestro usuario.
+
+![](https://i.postimg.cc/5tr16dYH/Testimonio-A.png)
+![](https://i.postimg.cc/658rvCmy/Testimonio-B.png)
+![](https://i.postimg.cc/9MXTF99X/Testimonio-C.png)
+
 
 #### Diseño
 
 El diseño previamente establecido en los prototipos de alta y baja fidelidad se implementó a través de un archivo **CSS**. Este nos permitió replicar el diseño original de la manera más exacta posible y se utilizó para dar un diseño **Responsive** a la aplicación, creando su versión web y móvil, según sea la necesidad del usuario.
 Es importante destacar que el uso de **Flexbox** ayudó a mantener la estructura de la página evitando tener exceso de código en el archivo respectivo.
+
+![](https://i.postimg.cc/yYBQh3sB/screenscofee.jpg)
+
+
+#### Calidad del codigo
+
+Ademas de las pruebas de usuario que se han realizado para poder tener un analisis de lo que pudieran penar nuestros usuarios, se han diseñado y realizado pruebas unitarias utilizando Eslint para que nosotras como desarrolladoras pudieramos corroborar que el codigo cumlpe con nuestros criterios base de calidad y de esa forma asegurarnos que al momento en el que arrojamos un nuevo update al mercado no limite la usabilidad del usuario.
+
+
+

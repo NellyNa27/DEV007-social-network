@@ -7,9 +7,19 @@
 body {
   background-image: url(images/fondo3.jpg);
   background-size: cover;
+  background-attachment: fixed;
   /* display: flex;
   justify-content: center;
   align-items: center; */
+}
+body::-webkit-scrollbar {
+  background-color: rgba(148, 143, 143, 0.21);
+  width: 15px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgb(143, 114, 62);
+  border-radius: 10px;
 }
 h1 {
   color: white;

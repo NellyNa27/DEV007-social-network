@@ -1,3 +1,5 @@
+/* eslint-disable implicit-arrow-linebreak */
+/* eslint-disable arrow-body-style */
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -22,7 +24,7 @@ export const createUser = async (email, contraseña) => {
   createUserWithEmailAndPassword(auth, email, contraseña);
 };
 export const logIn = async (email, contraseña) => {
-  signInWithEmailAndPassword(auth, email, contraseña);
+  return signInWithEmailAndPassword(auth, email, contraseña);
 };
 export const recoverPassword = async (email) => {
   sendPasswordResetEmail(auth, email);
@@ -40,7 +42,8 @@ export const createPost = async (text, mail) => {
   });
 };
 // usar callback
-export const enlistarPost = (callback) => onSnapshot(collection(db, 'posts'), callback);
+export const enlistarPost = (callback) =>
+  onSnapshot(collection(db, 'posts'), callback);
 //  Borra POST
 export const deletePost = (id) => {
   deleteDoc(doc(db, 'posts', id));
